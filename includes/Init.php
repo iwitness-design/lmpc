@@ -59,6 +59,8 @@ class Init {
 		// enqueue our stuff before Astra so that our stylesheet is before inline styles output by Astra
 		add_filter( 'astra_enqueue_theme_assets', [ $this, 'enqueue_main_style' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ], 2 );
+    add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
+    add_action( 'enqueue_block_assets', [ $this, 'enqueue_block_config' ] );
 
 		add_filter( 'astra_customizer_configurations', [ $this, 'astra_customizer' ], 50, 2 );
 		add_filter( 'astra_theme_dynamic_css', function( $css ) {
@@ -180,8 +182,8 @@ class Init {
 			'mobile-unit'  => 'em',
 		];
 
-		$options_array['body-font-family'] = "'Futura-PT',futura-pt,sans-serif";
-		$options_array['headings-font-family'] = "'Futura-PT',futura-pt,sans-serif";
+		$options_array['body-font-family'] = "Outfit, sans-serif";
+		$options_array['headings-font-family'] = "'Source Serif Pro', serif";
 
 		return $options_array;
 	}
@@ -221,6 +223,16 @@ class Init {
 		$this->enqueue->enqueue( 'theme', 'dynamic', [ 'in_footer' => false ] );
 
 	}
+
+
+  public function enqueue_admin_scripts() {
+    $this->enqueue->enqueue( 'admin', 'styles', [ 'in_footer' => false ]);
+    $this->enqueue->enqueue( 'admin', 'dynamic', [ 'in_footer' => false ]);
+  }
+
+  public function enqueue_block_config() {
+    $this->enqueue->enqueue( 'admin', 'scripts', [ 'in_footer' => false ]);
+  }
 
 	public function astra_customizer( $config, $customizer ) {
 

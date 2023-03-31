@@ -1,14 +1,17 @@
 body {
-	--cp-button--color: var(--cp-color-ui-inverted-light);
-	--cp-button--color--hover: var(--cp-button--color);
-	--cp-button--bg: var(--cp-color-ui-secondary);
-	--cp-button--bg--hover: #19221E;
-	--cp-button--border-color: var(--cp-button--bg);
-	--cp-button--border-color--hover: var(--cp-button--bg--hover);
-	--cp-button--border-radius: var(--cp-border-radius-sm); 
+	--cp-button--color: var(--cp-color-ui-tan );
+	--cp-button--color--hover: var(--cp-button--color );
+	--cp-button--bg: var(--cp-color-text-primary );
+	--cp-button--bg--hover: var(--cp-button--bg );
+	--cp-button--border-color: var( --cp-color-text-primary );
+	--cp-button--border-color--hover: var(--cp-color-text-primary );
+	--cp-button--border-radius: var(--cp-border-radius-none); 
 	--cp-button--padding: var(--cp-ui--gap-y-x);
 	--cp-button--text-align: center;
 	--cp-button--line-height: 1.5;
+  --cp-button--font-family: var(--cp-font-family--header);
+  --cp-button--font-weight: var(--cp-font-weight-bold);
+
 }
 
 %button,
@@ -21,16 +24,6 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	--cp-button--color: var(--cp-color-ui-inverted-light);
-	--cp-button--color--hover: var(--cp-button--color);
-	--cp-button--bg: var(--cp-color-ui-secondary);
-	--cp-button--bg--hover: #19221E;
-	--cp-button--border-color: var(--cp-button--bg);
-	--cp-button--border-color--hover: var(--cp-button--bg--hover);
-	--cp-button--border-radius: var(--cp-border-radius-round); 
-	--cp-button--padding: var(--cp-ui--gap-y-x);
-	--cp-button--text-align: center;
-	
 	border: 1px solid;
 	border-color: var(--cp-button--border-color);
 	border-radius: var(--cp-button--border-radius);
@@ -40,12 +33,13 @@ input[type="submit"] {
 	line-height: var(--cp-button--line-height);
 	letter-spacing: .04em;
 	font-size: var(--cp-font-size);
-	font-weight: var(--cp-font-weight--bold);
+	font-weight: var(--cp-button-font-weight);
 	text-align: var(--cp-button--text-align);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	text-decoration: none !important;
+  font-family: var(--cp-button--font-family);
 	
 	svg, i,
 	.fl-button-text {
@@ -108,6 +102,7 @@ input[type="submit"] {
 	// sizes
 	&.is-small {
 		--cp-button--padding: var(--cp-ui--gap-y-x--sm);
+    --cp-button--font-weight: var(--cp-font-weight-normal);
 		font-size: var(--cp-font-size--sm);
 	}
 	
@@ -121,11 +116,10 @@ input[type="submit"] {
 	
 	// styles
 	&.is-light {
-		--cp-button--bg: var(--cp-color-ui-inverted-light );
-		--cp-button--bg--hover: var(--cp-color-ui-inverted );
+		--cp-button--bg: var(--cp-color-ui-tan );
+		--cp-button--bg--hover: var(--cp-color-text-primary);
 		--cp-button--color: var(--cp-color-text-primary);
-		--cp-button--color--hover: var(--cp-button--color);
-		--cp-button--border-color: var(--cp-button--bg);
+		--cp-button--color--hover: var(--cp-color-ui-tan );
 	}
 	
 	&.is-transparent {
@@ -147,8 +141,27 @@ input[type="submit"] {
 		--cp-button--padding: 0;
 	}
 
-	&.is-em {
-		@extend %text-em;
-	}
+	// &.is-em {
+	// 	@extend %text-em;
+	// }
 
+}
+
+.wp-block-button.is-style-fill .wp-block-button__link {
+  @extend .cp-button, .is-large;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+ @extend .cp-button, .is-large, .is-light;
+}
+
+.is-style-small-button .wp-block-button__link,
+.wp-block-button.is-style-small-button .wp-block-button__link {
+    @extend .cp-button, .is-small;
+}
+
+
+.is-style-small-outline-button .wp-block-button__link,
+.wp-block-button.is-style-small-outline-button .wp-block-button__link {
+    @extend .cp-button, .is-light, .is-small;
 }

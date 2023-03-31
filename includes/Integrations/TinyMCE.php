@@ -144,16 +144,16 @@ class TinyMCE {
 		// Add colors
 
 		$settings['textcolor_map'] = '[
-			"171717", "Primary",
+			"14151B", "Primary",
 			"5F5B64", "Secondary",
 			"76737A", "Tertiary",
 			"A2A1A4", "Disabled",
-			"51315B", "Success",
-			"1FC2A4", "Info",
-			"CE8E2C", "Warn",
-			"F24441", "Danger",
-			"108599", "Brand Primary",
-			"F6F0ED", "Brand Secondary",
+			"378A8A", "Success",
+			"23303D", "Info",
+			"D6774B", "Warn",
+			"E3633B", "Danger",
+			"1C274F", "Brand Primary",
+			"378A8A", "Brand Secondary",
 		]';
 		
 		$settings['toolbar2'] = str_replace( 'fontsizeselect,', '', $settings['toolbar2'] );

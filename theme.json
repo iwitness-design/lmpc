@@ -1,0 +1,166 @@
+{
+  "version": 2,
+  "settings": {
+    "typography": {
+      "fontSizes": [
+        {
+          "name": "XS",
+          "size": "var(--cp-font-size--xs)",
+          "slug": "extra-small"
+        },
+        {
+          "name": "SM",
+          "size": "var(--cp-font-size--sm)",
+          "slug": "small"
+        },
+        {
+          "name": "M",
+          "size": "var(--cp-font-size)",
+          "slug": "medium"
+        },
+        {
+          "name": "LG",
+          "size": "var(--cp-font-size--lg)",
+          "slug": "large"
+        }
+      ],
+      "fontFamilies": [
+        {
+          "name": "Base",
+          "slug": "base",
+          "fontFamily": "var(--cp-font-family--base)"
+        },
+        {
+          "name": "Header",
+          "slug": "header",
+          "fontFamily": "var(--cp-font-family--header)"
+        }
+      ],
+      "customFontFamily": true
+    },
+    "color": {
+      "background": true,
+      "custom": true,
+      "defaultPalette": false,
+      "palette": [
+        {
+          "name": "Primary Brand",
+          "slug": "primary-brand",
+          "color": "#23303D"
+        },
+        {
+          "name": "Secondary",
+          "slug": "secondary",
+          "color": "#378A8A"
+        },
+        {
+          "name": "Inverted",
+          "slug": "inverted",
+          "color": "#CADCEE"
+        },
+        {
+          "name": "Text Primary",
+          "slug": "text-primary",
+          "color": "#14151B"
+        },
+        {
+          "name": "Text Secondary",
+          "slug": "text-secondary",
+          "color": "#5F5B64"
+        },
+        {
+          "name": "Text Tertiary",
+          "slug": "text-tertiary",
+          "color": "#76737A"
+        },
+        {
+          "name": "Disabled",
+          "slug": "disabled",
+          "color": "#A2A1A4"
+        },
+        {
+          "name": "Info",
+          "slug": "info",
+          "color": "#23303D"
+        },
+        {
+          "name": "Success",
+          "slug": "success",
+          "color": "#378A8A"
+        },
+        {
+          "name": "Warning",
+          "slug": "warning",
+          "color": "#D6774B"
+        },
+        {
+          "name": "Danger",
+          "slug": "danger",
+          "color": "#E3633B"
+        }
+      ],
+      "text": true
+    },
+    "blocks": {
+      "core/heading": {
+        "typography": {
+          "fontSizes": [
+            {
+              "name": "Heading 1",
+              "size": "var(--cp-font-size-h1)",
+              "slug": "heading-1"
+            },
+            {
+              "name": "Heading 2",
+              "size": "var(--cp-font-size-h2)",
+              "slug": "heading-2"
+            },
+            {
+              "name": "Heading 3",
+              "size": "var(--cp-font-size-h3)",
+              "slug": "heading-3"
+            },
+            {
+              "name": "Heading 4",
+              "size": "var(--cp-font-size-h4)",
+              "slug": "heading-4"
+            },
+            {
+              "name": "Heading 5",
+              "size": "var(--cp-font-size-h5)",
+              "slug": "heading-5"
+            },
+            {
+              "name": "Heading 6",
+              "size": "var(--cp-font-size-h6)",
+              "slug": "heading-6"
+            }
+          ]
+        }
+      },
+      "core/button": {
+        "typography": {
+					"fontFamilies": [
+						{
+							"fontFamily": "Helvetica Neue, Helvetica, Arial, sans-serif",
+							"slug": "helvetica-arial",
+							"name": "Helvetica or Arial"
+						}
+					]
+				}
+      }
+    }
+  },
+  "styles": {
+    "typography": {
+      "fontFamily": "var(--wp-preset--font-family--default)"
+    },
+    "blocks": {
+      "core/heading": {
+        "typography": {
+          "fontFamily": "var(--wp-preset--font-family--header)"
+        }
+      }
+    }
+  }
+}

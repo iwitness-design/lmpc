@@ -254,21 +254,21 @@ class BB {
 			// grayscale
 			'FFFFFF',
 			'000000',
-			'171717',
+			'14151B',
 			'5F5B64',
 			'76737A',
 			'A2A1A4',
 			
 			// ui colors
-			'108599',
-			'1D5A5c',
-			'CCD6D6',
+			'1C274F',
+			'378A8A',
+			'CADCEE',
 
 			// alert colors
-			'51315B',
-			'1FC2A4',
-			'CE8E2C',
-			'F24441',
+			'23303D',
+			'378A8A',
+			'D6774B',
+			'E3633B',
 		);
 	}
 
