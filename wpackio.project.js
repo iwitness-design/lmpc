@@ -46,6 +46,35 @@ module.exports = {
 				
 				return merge(config, customRules);
 			},
+		},
+    {
+			name: 'admin',
+			entry: {
+				styles: ['./assets/scss/admin/main.scss'],
+				dynamic: ['./assets/scss/dynamic-font-size.scss'],
+        scripts: ['./assets/js/block-variations.js']
+			},
+			webpackConfig: (config, merge, appDir, isDev) => {
+				const customRules = {
+					module: {
+						rules: [
+							{
+								test: /\.(png|jpg|gif|svg)$/i,
+								use : [
+									{
+										loader : 'url-loader',
+										options: {
+											limit: 8192,
+										}
+									}
+								]
+							}
+						]
+					}
+				};
+				
+				return merge(config, customRules);
+			},
 		}
 		// If this has length === 1, then single compiler
 		// {

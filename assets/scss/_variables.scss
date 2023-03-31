@@ -1,5 +1,7 @@
 @import "grid/variables";
 @import "variables-site/typography";
+@import 'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap';
+
 
 body {
 	--cp-color--primary: #ffffff;
@@ -13,24 +15,25 @@ body {
 	--cp-color-canvas-main: #ffffff;
 	--cp-color-canvas-inverted: #000000;
 	
-	--cp-color-brand-primary: #108599;
+	--cp-color-brand-primary: #1C274F;
 	
 	--cp-color-ui-primary: var(--cp-color-brand-primary);
-	--cp-color-ui-secondary: #1D5A5c;
-	--cp-color-ui-inverted: #CCD6D6;
+	--cp-color-ui-secondary: #378A8A;
+	--cp-color-ui-inverted: #CADCEE;
 	--cp-color-ui-inverted-light: #F6F0ED;
+	--cp-color-ui-tan: #FBF9F6;
+  
+	--cp-color-ui-success: #378A8A;
+	--cp-color-ui-info: #23303D;
+	--cp-color-ui-warn: #D6774B;
+	--cp-color-ui-danger: #E3633B;
 	
-	--cp-color-ui-success: #51315B;
-	--cp-color-ui-info: #1FC2A4;
-	--cp-color-ui-warn: #CE8E2C;
-	--cp-color-ui-danger: #F24441;	
-	
-	--cp-color-dark-text-primary: var(--cp-color-ui-inverted);
+	--cp-color-dark-text-primary: #EBECED;
 	--cp-color-dark-text-secondary: var(--cp-color-ui-inverted-light);
 	--cp-color-dark-text-tertiary: var(--cp-color-brand-primary);
-	--cp-color-dark-text-disabled: var(--cp-color-text-disabled);
+	--cp-color-dark-text-disabled: #A2A1A4;
 	
-	--cp-color-text-primary: #171717;
+	--cp-color-text-primary: #14151B;
 	--cp-color-text-secondary: #5F5B64;
 	--cp-color-text-tertiary: #76737A;
 	--cp-color-text-disabled: #A2A1A4;
@@ -46,8 +49,8 @@ body {
 	// font sizes
 	--cp-font-size--xs: max( 10px, .64em );
 	--cp-font-size--sm: max( 12px, .8em );
-	--cp-font-size: max( 14px, 1em );
-	--cp-font-size--lg: max( 16px, 1.25em );
+	--cp-font-size: max( 14px, 1.125em );
+	--cp-font-size--lg: max( 16px, 1.375em );
 	
 	--cp-font-size-h1: #{$font-size-h1}; 
 	--cp-font-size-h2: #{$font-size-h2}; 
@@ -59,8 +62,8 @@ body {
 	--cp-font-weight--normal: 400;
 	--cp-font-weight--bold: 600;
 	
-	--cp-font-family--base: Futura-PT, futura-pt, sans-serif;
-	--cp-font-family--header: Futura-PT, futura-pt, sans-serif;
+	--cp-font-family--base: Outfit, sans-serif;
+	--cp-font-family--header: "Source Serif Pro", serif;
 	
 	// gaps, padding, margin
 	--cp-grid--gap: 1rem;
