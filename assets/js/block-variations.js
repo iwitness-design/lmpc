@@ -1,7 +1,4 @@
 
-console.log(wp, wp.blocks, wp.domReady)
-
-
 wp.blocks.registerBlockStyle( 
   'core/button', 
   {
