@@ -1,2 +1,20 @@
 @import 'gutenberg-editor-variables';
-@import '../elements/buttons';
+@import '../elements/button-default';
+
+.wp-block-button.is-style-fill .wp-block-button__link {
+  @extend .cp-default-button, .is-large;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+  @extend .cp-default-button, .is-large, .is-light;
+}
+
+.is-style-small-button .wp-block-button__link,
+.wp-block-button.is-style-small-button .wp-block-button__link {
+  @extend .cp-default-button, .is-small;
+}
+
+.is-style-small-outline-button .wp-block-button__link,
+.wp-block-button.is-style-small-outline-button .wp-block-button__link {
+  @extend .cp-default-button, .is-light, .is-small;
+}
