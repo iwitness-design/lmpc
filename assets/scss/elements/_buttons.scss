@@ -1,4 +1,27 @@
+<<<<<<< Updated upstream
 @import 'button-default';
+=======
+<<<<<<< Updated upstream
+body {
+	--cp-button--color: var(--cp-color-ui-tan );
+	--cp-button--color--hover: var(--cp-button--color );
+	--cp-button--bg: var(--cp-color-text-primary );
+	--cp-button--bg--hover: var(--cp-button--bg );
+	--cp-button--border-color: var( --cp-color-text-primary );
+	--cp-button--border-color--hover: var(--cp-color-text-primary );
+	--cp-button--border-radius: var(--cp-border-radius-none); 
+	--cp-button--padding: var(--cp-ui--gap-y-x);
+	--cp-button--text-align: center;
+	--cp-button--line-height: 1.5;
+  --cp-button--font-family: var(--cp-font-family--header);
+  --cp-button--font-weight: var(--cp-font-weight-bold);
+
+}
+=======
+@import 'button-default';
+@import 'block-buttons';
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 %button,
 body .fl-builder-content .fl-button-wrap a.fl-button,
@@ -10,5 +33,153 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
+<<<<<<< Updated upstream
   @extend .cp-default-button;
 }
+=======
+<<<<<<< Updated upstream
+	border: 1px solid;
+	border-color: var(--cp-button--border-color);
+	border-radius: var(--cp-button--border-radius);
+	background: var(--cp-button--bg);
+	padding: var(--cp-button--padding);
+	color: var(--cp-button--color);
+	line-height: var(--cp-button--line-height);
+	letter-spacing: .04em;
+	font-size: var(--cp-font-size);
+	font-weight: var(--cp-button-font-weight);
+	text-align: var(--cp-button--text-align);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none !important;
+  font-family: var(--cp-button--font-family);
+	
+	svg, i,
+	.fl-button-text {
+		color: var(--cp-button--color);
+	}
+	
+	svg {
+		width: 1.25em;
+		height: 1.25em;
+		
+		&.is-small {
+			width: 1em;
+			height: 1em;
+		}
+	}
+	
+	i {
+		font-size: 1.25em;
+		
+		&.is-small {
+			font-size: 1em;
+		}
+	}
+	
+	svg, i {
+		&:last-child:not(:first-child) {
+			margin: -.5em 0 -.5em .5em;
+			float: right;
+		}
+		
+		&:first-child:not(:last-child) {
+			margin: -.5em .5em -.5em 0;
+			float: left;
+		}
+	}
+	
+	&:hover,
+	&:focus {
+		color: var(--cp-button--color--hover);
+		border-color: var(--cp-button--border-color--hover);
+		background: var(--cp-button--bg--hover);
+
+		svg, i,
+		.fl-button-text {
+			color: var(--cp-button--color--hover);
+		}
+	}
+
+	&:active,
+	&:focus {
+		color: var(--cp-button--color--hover);
+		border-color: var(--cp-button--border-color--hover);
+		outline:none;
+
+		.fl-button-text {
+			color: var(--cp-button--color--hover);
+		}
+	}
+	
+	// sizes
+	&.is-small {
+		--cp-button--padding: var(--cp-ui--gap-y-x--sm);
+    --cp-button--font-weight: var(--cp-font-weight-normal);
+		font-size: var(--cp-font-size--sm);
+	}
+	
+	&.is-large {
+		--cp-button--padding: var(--cp-ui--gap-y-x--lg);
+	}
+	
+	&.is-fullwidth {
+		width: 100%;
+	}
+	
+	// styles
+	&.is-light {
+		--cp-button--bg: var(--cp-color-ui-tan );
+		--cp-button--bg--hover: var(--cp-color-text-primary);
+		--cp-button--color: var(--cp-color-text-primary);
+		--cp-button--color--hover: var(--cp-color-ui-tan );
+	}
+	
+	&.is-transparent {
+		--cp-button--color: var(--cp-color-ui-secondary);
+		--cp-button--color--hover: var(--cp-color-ui-inverted-light);
+		--cp-button--bg: transparent;
+		--cp-button--bg--hover: var(--cp-color-ui-secondary);
+		--cp-button--border-color: var(--cp-button--color);
+	}
+	
+	&.is-text {
+		--cp-button--color: currentColor;
+		--cp-button--color--hover: var(--cp-color-text-link);
+		--cp-button--bg: transparent;
+		--cp-button--bg--hover: transparent;
+		--cp-button--border-color: transparent;
+		--cp-button--border-color--hover: var(--cp-button--border-color);
+		--cp-button--border-radius: var(--cp-border-radius-sm); 
+		--cp-button--padding: 0;
+	}
+
+	// &.is-em {
+	// 	@extend %text-em;
+	// }
+
+}
+
+.wp-block-button.is-style-fill .wp-block-button__link {
+  @extend .cp-button, .is-large;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+ @extend .cp-button, .is-large, .is-light;
+}
+
+.is-style-small-button .wp-block-button__link,
+.wp-block-button.is-style-small-button .wp-block-button__link {
+    @extend .cp-button, .is-small;
+}
+
+
+.is-style-small-outline-button .wp-block-button__link,
+.wp-block-button.is-style-small-outline-button .wp-block-button__link {
+    @extend .cp-button, .is-light, .is-small;
+=======
+  @extend .cp-default-button;
+>>>>>>> Stashed changes
+}
+>>>>>>> Stashed changes

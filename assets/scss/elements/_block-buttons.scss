@@ -1,5 +1,3 @@
-@import 'gutenberg-editor-variables';
-<<<<<<< Updated upstream
 @import '../elements/button-default';
 
 .wp-block-button.is-style-fill .wp-block-button__link {
@@ -7,22 +5,15 @@
 }
 
 .wp-block-button.is-style-outline .wp-block-button__link {
-  @extend .cp-default-button, .is-large, .is-light;
+  @extend .cp-default-button,.is-large, .is-light;
 }
 
 .is-style-small-button .wp-block-button__link,
 .wp-block-button.is-style-small-button .wp-block-button__link {
-  @extend .cp-default-button, .is-small;
+  @extend .cp-default-button,.is-small;
 }
 
 .is-style-small-outline-button .wp-block-button__link,
 .wp-block-button.is-style-small-outline-button .wp-block-button__link {
-  @extend .cp-default-button, .is-light, .is-small;
+  @extend .cp-default-button,.is-light, .is-small;
 }
-=======
-<<<<<<< Updated upstream
-@import '../elements/buttons';
-=======
-@import '../elements/block-buttons';
->>>>>>> Stashed changes
->>>>>>> Stashed changes
