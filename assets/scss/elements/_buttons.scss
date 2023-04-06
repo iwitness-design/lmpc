@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-@import 'button-default';
-=======
-<<<<<<< Updated upstream
 body {
 	--cp-button--color: var(--cp-color-ui-tan );
 	--cp-button--color--hover: var(--cp-button--color );
@@ -17,11 +13,6 @@ body {
   --cp-button--font-weight: var(--cp-font-weight-bold);
 
 }
-=======
-@import 'button-default';
-@import 'block-buttons';
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
 %button,
 body .fl-builder-content .fl-button-wrap a.fl-button,
@@ -33,11 +24,6 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-<<<<<<< Updated upstream
-  @extend .cp-default-button;
-}
-=======
-<<<<<<< Updated upstream
 	border: 1px solid;
 	border-color: var(--cp-button--border-color);
 	border-radius: var(--cp-button--border-radius);
@@ -160,26 +146,3 @@ input[type="submit"] {
 	// }
 
 }
-
-.wp-block-button.is-style-fill .wp-block-button__link {
-  @extend .cp-button, .is-large;
-}
-
-.wp-block-button.is-style-outline .wp-block-button__link {
- @extend .cp-button, .is-large, .is-light;
-}
-
-.is-style-small-button .wp-block-button__link,
-.wp-block-button.is-style-small-button .wp-block-button__link {
-    @extend .cp-button, .is-small;
-}
-
-
-.is-style-small-outline-button .wp-block-button__link,
-.wp-block-button.is-style-small-outline-button .wp-block-button__link {
-    @extend .cp-button, .is-light, .is-small;
-=======
-  @extend .cp-default-button;
->>>>>>> Stashed changes
-}
->>>>>>> Stashed changes
