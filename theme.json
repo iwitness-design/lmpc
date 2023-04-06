@@ -105,7 +105,7 @@
     "spacing": {
       "margin": false,
       "padding": false,
-      "customSpacingSize": false,
+      "blockGap": true,
       "spacingSizes": [
         {
           "size": "var(--cp-gap--sm)",
@@ -118,7 +118,7 @@
           "name": "M"
         },
         {
-          "size": "var(--cp-gap-lg)",
+          "size": "var(--cp-gap--lg)",
           "slug": "lg",
           "name": "L"
         }
@@ -157,6 +157,9 @@
   "styles": {
     "typography": {
       "fontFamily": "var(--wp-preset--font-family--default)"
+    },
+    "spacing": {
+      "blockGap": "300px"
     },
     "blocks": {
       "core/heading": {
