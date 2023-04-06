@@ -4,22 +4,22 @@
     "typography": {
       "fontSizes": [
         {
-          "name": "XS",
+          "name": "Small",
           "size": "var(--cp-font-size--xs)",
           "slug": "extra-small"
         },
         {
-          "name": "SM",
+          "name": "Medium",
           "size": "var(--cp-font-size--sm)",
           "slug": "small"
         },
         {
-          "name": "M",
+          "name": "Large",
           "size": "var(--cp-font-size)",
           "slug": "medium"
         },
         {
-          "name": "LG",
+          "name": "Extra Large",
           "size": "var(--cp-font-size--lg)",
           "slug": "large"
         }
@@ -36,7 +36,8 @@
           "fontFamily": "var(--cp-font-family--header)"
         }
       ],
-      "customFontFamily": true
+      "customFontSize": false,
+      "customFontFamily": false
     },
     "color": {
       "background": true,
@@ -101,41 +102,54 @@
       ],
       "text": true
     },
+    "spacing": {
+      "margin": false,
+      "padding": false,
+      "customSpacingSize": false,
+      "spacingSizes": [
+        {
+          "size": "var(--cp-gap--sm)",
+          "slug": "sm",
+          "name": "S"
+        },
+        {
+          "size": "var(--cp-gap--md)",
+          "slug": "md",
+          "name": "M"
+        },
+        {
+          "size": "var(--cp-gap-lg)",
+          "slug": "lg",
+          "name": "L"
+        }
+      ]
+    },
     "blocks": {
       "core/heading": {
         "typography": {
-          "fontSizes": [
-            {
-              "name": "Heading 1",
-              "size": "var(--cp-font-size-h1)",
-              "slug": "heading-1"
-            },
-            {
-              "name": "Heading 2",
-              "size": "var(--cp-font-size-h2)",
-              "slug": "heading-2"
-            },
-            {
-              "name": "Heading 3",
-              "size": "var(--cp-font-size-h3)",
-              "slug": "heading-3"
-            },
-            {
-              "name": "Heading 4",
-              "size": "var(--cp-font-size-h4)",
-              "slug": "heading-4"
-            },
-            {
-              "name": "Heading 5",
-              "size": "var(--cp-font-size-h5)",
-              "slug": "heading-5"
-            },
-            {
-              "name": "Heading 6",
-              "size": "var(--cp-font-size-h6)",
-              "slug": "heading-6"
-            }
-          ]
+          "fontSizes": []
+        }
+      },
+      "core/button": {
+        "color": {
+          "text": false,
+          "background": false,
+          "link": false,
+          "custom": false,
+          "customDuotone": false,
+          "customGradient": false,
+          "defaultDuotone": false,
+          "defaultGradients": false,
+          "defaultPalette": false
+        },
+        "border": {
+          "color": false,
+          "radius": false,
+          "style": false,
+          "width": false
+        },
+        "typography": {
+          "fontSizes": []
         }
       }
     }
