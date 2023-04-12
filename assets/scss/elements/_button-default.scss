@@ -1,4 +1,3 @@
-@import 'block-buttons';
 
 body {
 	--cp-button--color: var(--cp-color-ui-tan );
@@ -13,19 +12,9 @@ body {
 	--cp-button--line-height: 1.5;
   --cp-button--font-family: var(--cp-font-family--header);
   --cp-button--font-weight: var(--cp-font-weight-bold);
-
 }
 
-%button,
-body .fl-builder-content .fl-button-wrap a.fl-button,
-.cpl-button,
-.cp-button,
-button,
-.ast-button,
-.button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+.cp-default-button {
 	border: 1px solid;
 	border-color: var(--cp-button--border-color);
 	border-radius: var(--cp-button--border-radius);
@@ -143,6 +132,9 @@ input[type="submit"] {
 		--cp-button--padding: 0;
 	}
 
+  &.is-round {
+    --cp-button-border-radius: var(--cp-border-radius-round);
+  }
 	// &.is-em {
 	// 	@extend %text-em;
 	// }

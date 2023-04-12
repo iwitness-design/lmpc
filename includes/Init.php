@@ -60,7 +60,9 @@ class Init {
 		add_filter( 'astra_enqueue_theme_assets', [ $this, 'enqueue_main_style' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ], 2 );
     add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
-    add_action( 'enqueue_block_assets', [ $this, 'enqueue_block_config' ] );
+    // add_action( 'enqueue_block_assets', [ $this, 'enqueue_block_config' ] );
+
+    add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_variation_scripts' ]);    
 
 		add_filter( 'astra_customizer_configurations', [ $this, 'astra_customizer' ], 50, 2 );
 		add_filter( 'astra_theme_dynamic_css', function( $css ) {
@@ -235,7 +237,7 @@ class Init {
   }
 
   public function enqueue_block_variation_scripts() {
-    wp_register_script( 'lmpc-block-variations', get_stylesheet_uri() . '/../assets/js/block-variations.js', '1.0.0' );
+    wp_register_script( 'lmpc-block-variations', get_stylesheet_directory() . 'assets/js/block-variations.js', '1.0.0' );
     wp_enqueue_script( 'lmpc-block-variations' );
   }
 
