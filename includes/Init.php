@@ -234,6 +234,11 @@ class Init {
     $this->enqueue->enqueue( 'admin', 'scripts', [ 'in_footer' => false ]);
   }
 
+  public function enqueue_block_variation_scripts() {
+    wp_register_script( 'lmpc-block-variations', get_stylesheet_uri() . '/../assets/js/block-variations.js', '1.0.0' );
+    wp_enqueue_script( 'lmpc-block-variations' );
+  }
+
 	public function astra_customizer( $config, $customizer ) {
 
 		foreach( $config as $key => $item ) {
@@ -287,4 +292,12 @@ class Init {
 		return $this->get_id() . '/v1';
 	}
 
+
+  public function init_blocks() {
+    $blocks = [
+      'infobox'
+    ];
+
+    
+  }
 }
