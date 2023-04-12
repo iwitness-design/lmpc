@@ -11,7 +11,8 @@ body {
 	--cp-button--text-align: center;
 	--cp-button--line-height: 1.5;
   --cp-button--font-family: var(--cp-font-family--header);
-  --cp-button--font-weight: var(--cp-font-weight-bold);
+  --cp-button--font-weight: var(--cp-font-weight--bold);
+  --cp-button--font-size: 16px;
 }
 
 .cp-default-button {
@@ -23,8 +24,8 @@ body {
 	color: var(--cp-button--color);
 	line-height: var(--cp-button--line-height);
 	letter-spacing: .04em;
-	font-size: var(--cp-font-size);
-	font-weight: var(--cp-button-font-weight);
+	font-size: var(--cp-button--font-size);
+	font-weight: var(--cp-button--font-weight);
 	text-align: var(--cp-button--text-align);
 	display: inline-flex;
 	align-items: center;
@@ -93,8 +94,8 @@ body {
 	// sizes
 	&.is-small {
 		--cp-button--padding: var(--cp-ui--gap-y-x--sm);
-    --cp-button--font-weight: var(--cp-font-weight-normal);
-		font-size: var(--cp-font-size--sm);
+		--cp-button--font-size: var(--cp-font-size--sm);
+    --cp-button--font-weight: var(--cp-font-weight--normal);
 	}
 	
 	&.is-large {

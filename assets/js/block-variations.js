@@ -14,3 +14,19 @@ wp.blocks.registerBlockStyle(
     label: "Small Outline"
   }
 )
+
+wp.blocks.registerBlockStyle( 
+  'core/button', 
+  {
+    name: "large-button",
+    label: "Large"
+  }
+)
+
+wp.blocks.registerBlockStyle( 
+  'core/button', 
+  {
+    name: "large-outline-button",
+    label: "Large Outline"
+  }
+)

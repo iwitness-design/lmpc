@@ -8,13 +8,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body .page-title {
-	color: var(--cp-color-text-primary);
+	color: #000000;
 }
 
 %h1, h1, .h1,
 h1.page-title,
 .entry-content h1 {
-	color: var(--cp-color-text-primary);
+	color: #000000;
 	font-size: $font-size-h1 * $mobile-modifier;
 	line-height: $line-height-h1;
 	font-weight: var(--cp-font-weight--bold);
@@ -24,14 +24,14 @@ h1.page-title,
 	}
 	
 	a {
-		color: var(--cp-color-text-primary);
+		color: #000000;
 	}
 }
 
 %h2, h2, .h2,
 h2.page-title,
 .entry-content h2 {
-	color: var(--cp-color-text-primary);
+	color: #000000;
 	font-size: $font-size-h2 * $mobile-modifier;
 	line-height: $line-height-h2;
 	font-weight: var(--cp-font-weight--bold);
@@ -41,13 +41,13 @@ h2.page-title,
 	}
 
 	a {
-		color: var(--cp-color-text-primary);
+		color: #000000;
 	}
 }
 
 %h3, h3, .h3,
 .entry-content h3 {
-	color: var(--cp-color-text-primary);
+	color: #000000;
 	font-size: $font-size-h3 * $mobile-modifier;
 	line-height: $line-height-h3;
 	font-weight: var(--cp-font-weight--bold);
@@ -57,32 +57,38 @@ h2.page-title,
 	}
 
 	a {
-		color: var(--cp-color-text-primary);
+		color: #000000;
 	}
 }
 
 %h4, h4, .h4,
 .entry-content h4 {
-	color: var(--cp-color-text-primary);
+	color: #000000;
 	line-height: $line-height-h4;
 	font-size: $font-size-h4;
 	font-weight: var(--cp-font-weight--bold);
+  font-family: var(--cp-font-family--base);
+  text-transform: uppercase;
 }
 
 %h5, h5, .h5,
 .entry-content h5 {
-	color: var(--cp-color-text-primary);
+	color: #000000;
 	line-height: $line-height-h5;
 	font-size: $font-size-h5;
 	font-weight: var(--cp-font-weight--bold);
+  font-family: var(--cp-font-family--base);
+  text-transform: uppercase;
 }
 
 %h6, h6, .h6,
 .entry-content h6 {
-	color: var(--cp-color-text-primary);
+	color: #000000;
 	line-height: $line-height-h6;
 	font-size: $font-size-h6;
 	font-weight: var(--cp-font-weight--bold);
+  font-family: var(--cp-font-family--base);
+  text-transform: uppercase;
 }
 
 .cpl-list-type--details {

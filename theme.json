@@ -1,4 +1,5 @@
 {
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 2,
   "settings": {
     "typography": {
@@ -24,25 +25,13 @@
           "slug": "large"
         }
       ],
-      "fontFamilies": [
-        {
-          "name": "Normal",
-          "slug": "base",
-          "fontFamily": "var(--cp-font-family--base)"
-        },
-        {
-          "name": "Heading",
-          "slug": "header",
-          "fontFamily": "var(--cp-font-family--header)"
-        }
-      ],
+      "fontFamilies": [],
       "customFontSize": false,
-      "customFontFamily": false,
-      "align": true
+      "lineHeight": false
     },
     "color": {
       "background": true,
-      "custom": true,
+      "custom": false,
       "defaultPalette": false,
       "palette": [
         {
@@ -99,6 +88,16 @@
           "name": "Danger",
           "slug": "danger",
           "color": "#E3633B"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "#ffffff"
+        },
+        {
+          "name": "Black",
+          "slug": "black",
+          "color": "#000000"
         }
       ],
       "text": true
@@ -148,38 +147,76 @@
           "radius": false,
           "style": false,
           "width": false
-        },
-        "typography": {
-          "fontSizes": []
         }
       }
     },
     "layout": {
-			"contentSize": "1200px",
-			"wideSize": "1400px"
+			"contentSize": "71rem",
+			"wideSize": "75rem"
 		}
   },
   "styles": {
-    "typography": {
-      "fontFamily": "var(--wp-preset--font-family--default)"
-    },
     "spacing": {
-      "blockGap": "var(--cp-gap--sm)"
+      "blockGap": "var(--cp-gap--main)"
     },
     "blocks": {
-      "core/heading": {
+      "core/paragraph": {
         "typography": {
-          "fontFamily": "var(--wp-preset--font-family--header)"
+          "fontFamily": "var(--cp-font-family--base)",
+          "fontSize": "var(--wp--preset--font-size--medium)"
+        }
+      }
+    },
+    "elements": {
+      "h1": {
+        "typography": {
+          "fontFamily": "var(--cp-font-family--header)"
+        },
+        "color": {
+          "text": "#000000"
         }
       },
-      "core/column": {
-        "spacing": {
-          "padding": {
-            "top": "var(--cp-gap--sm)",
-            "bottom": "var(--cp-gap--sm)",
-            "left": "var(--cp-gap--sm)",
-            "right": "var(--cp-gap--sm)"
-          }
+      "h2": {
+        "typography": {
+          "fontFamily": "var(--cp-font-family--header)"
+        },
+        "color": {
+          "text": "#000000"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontFamily": "var(--cp-font-family--header)"
+        },
+        "color": {
+          "text": "#000000"
+        }
+      },
+      "h4": {
+        "typography": {
+          "fontFamily": "var(--cp-font-family--base)",
+          "textTransform": "uppercase"
+        },
+        "color": {
+          "text": "#000000"
+        }
+      },
+      "h5": {
+        "typography": {
+          "fontFamily": "var(--cp-font-family--base)",
+          "textTransform": "uppercase"
+        },
+        "color": {
+          "text": "#000000"
+        }
+      },
+      "h6": {
+        "typography": {
+          "fontFamily": "var(--cp-font-family--base)",
+          "textTransform": "uppercase"
+        },
+        "color": {
+          "text": "#000000"
         }
       }
     }

@@ -79,6 +79,7 @@ body {
 	--cp-gap--lg: calc( var(--cp-gap-base) * 8 );
 	--cp-gap--xl: calc( var(--cp-gap-base) * 16 );
 	--cp-gap--xxl: calc( var(--cp-gap-base) * 32 );
+  --cp-gap--main: var(--cp-gap--md);
 	
 	--cp-ui--gap-y--sm: calc( var(--cp-gap-base) * .5 );
 	--cp-ui--gap-x--sm: var(--cp-gap-base );
@@ -103,4 +104,10 @@ body {
 	--cp-border-radius: 12px;
 	--cp-border-radius-lg: 24px;
 	--cp-border-radius-round: 100px;
+}
+
+@media(max-width: 600px) {
+  body {
+    --cp-gap--main: var(--cp-gap--sm);
+  }
 }
