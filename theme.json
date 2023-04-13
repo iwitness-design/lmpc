@@ -122,7 +122,8 @@
           "slug": "lg",
           "name": "L"
         }
-      ]
+      ],
+      "customSpacingSize": false
     },
     "layout": {
       "definitions": {

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@wordpress/scripts": "^26.1.0",
+    "@wordpress/scripts": "^26.2.0",
     "@wpackio/scripts": "^6.4.0",
     "postcss": "^8.4.5",
     "sass": "^1.45.1"
@@ -12,13 +12,18 @@
     "bootstrap": "wpackio-scripts bootstrap",
     "build": "wpackio-scripts build",
     "start": "wpackio-scripts start",
-    "archive": "wpackio-scripts pack"
+    "archive": "wpackio-scripts pack",
+    "build:blocks": "wp-scripts build assets/blocks/src/block.js --output-path=assets/blocks/build/ --output-filename=block.build.js",
+    "dev:blocks": "wp-scripts start assets/blocks/src/block.js --output-path=assets/blocks/build/ --output-filename=block.build.js",
+    "packages-update": "wp-scripts packages-update"
   },
   "dependencies": {
+    "@wordpress/block-editor": "^11.8.0",
     "@wpackio/entrypoint": "^6.4.0",
     "bulma": "^0.9.4",
     "classnames": "^2.3.2",
     "feather-icons": "^4.29.0",
+    "react-select": "^5.2.1",
     "selectize": "^0.12.6",
     "url-loader": "^4.1.1"
   }

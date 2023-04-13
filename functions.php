@@ -39,3 +39,8 @@ function child_enqueue_styles() {
 }
 
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
+
+require_once trailingslashit( get_stylesheet_directory() )  . 'includes/class-base.php';
+
+$base = new Base();
+$base->gbblock_init();
