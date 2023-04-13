@@ -75,7 +75,13 @@ module.exports = {
 				
 				return merge(config, customRules);
 			},
-		}
+		},
+    {
+      name: 'blocks',
+      entry: {
+        'test': [ './src/blocks/test/index.js' ]
+      }
+    }
 		// If this has length === 1, then single compiler
 		// {
 		// 	name: 'mobile',
@@ -107,7 +113,7 @@ module.exports = {
 	outputPath: 'dist',
 	// Project specific config
 	// Needs react(jsx)?
-	hasReact: false,
+	hasReact: true,
 	// Whether or not to use the new jsx runtime introduced in React 17
 	// this is opt-in
 	// @see {https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html}

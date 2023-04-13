@@ -1,11 +1,11 @@
 @import '../elements/button-default';
 
 .wp-block-button.is-style-fill .wp-block-button__link {
-  @extend .cp-default-button, .is-large;
+  @extend .cp-default-button;
 }
 
 .wp-block-button.is-style-outline .wp-block-button__link {
-  @extend .cp-default-button,.is-large, .is-light;
+  @extend .cp-default-button, .is-light;
 }
 
 .is-style-small-button .wp-block-button__link,
@@ -16,4 +16,12 @@
 .is-style-small-outline-button .wp-block-button__link,
 .wp-block-button.is-style-small-outline-button .wp-block-button__link {
   @extend .cp-default-button,.is-light, .is-small;
+}
+
+.wp-block-button.is-style-large-button .wp-block-button__link {
+  @extend .cp-default-button, .is-large;
+}
+
+.wp-block-button.is-style-large-outline-button .wp-block-button__link {
+  @extend .cp-default-button, .is-large, .is-light;
 }
