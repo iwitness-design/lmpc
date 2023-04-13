@@ -220,3 +220,20 @@
   line-height: 120%;
   margin-bottom: var(--cp-gap--md);
 }
+
+
+@for $i from 1 through 5 {
+  @for $j from 1 through 5 {
+    h#{$i} + h#{$j} {
+      margin-top: var(--cp-gap--md);
+    }
+  }
+}
+
+p {
+  margin-bottom: var(--cp-gap--sm);
+}
+
+p + *:not(p) {
+  margin-top: var(--cp-gap--md);
+}
