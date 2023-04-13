@@ -1,0 +1,11 @@
+{
+	"name": "lmpc/spacer",
+	"title": "Spacer 2",
+	"apiVersion": 2,
+	"category": "widgets",
+	"description": "Add spacing between blocks",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lmpc"
+}

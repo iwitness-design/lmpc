@@ -28,7 +28,7 @@ body {
 	--cp-color-ui-warn: #D6774B;
 	--cp-color-ui-danger: #E3633B;
 	
-	--cp-color-dark-text-primary: #EBECED;
+	--cp-color-dark-text-primary: var(--cp-color-brand-primary);
 	--cp-color-dark-text-secondary: var(--cp-color-ui-inverted-light);
 	--cp-color-dark-text-tertiary: var(--cp-color-brand-primary);
 	--cp-color-dark-text-disabled: #A2A1A4;
