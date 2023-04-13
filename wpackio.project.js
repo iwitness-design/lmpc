@@ -75,13 +75,7 @@ module.exports = {
 				
 				return merge(config, customRules);
 			},
-		},
-    {
-      name: 'blocks',
-      entry: {
-        'test': [ './src/blocks/test/index.js' ]
-      }
-    }
+		}
 		// If this has length === 1, then single compiler
 		// {
 		// 	name: 'mobile',

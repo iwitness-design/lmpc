@@ -5,15 +5,15 @@
   "devDependencies": {
     "@wordpress/scripts": "^26.2.0",
     "@wpackio/scripts": "^6.4.0",
+    "file-loader": "^6.2.0",
     "postcss": "^8.4.5",
     "sass": "^1.45.1"
   },
   "scripts": {
     "bootstrap": "wpackio-scripts bootstrap",
-    "build": "wpackio-scripts build",
+    "build": "wpackio-scripts build && wp-scripts build assets/blocks/src/block.js --output-path=assets/blocks/build/ --output-filename=block.build.js",
     "start": "wpackio-scripts start",
     "archive": "wpackio-scripts pack",
-    "build:blocks": "wp-scripts build assets/blocks/src/block.js --output-path=assets/blocks/build/ --output-filename=block.build.js",
     "dev:blocks": "wp-scripts start assets/blocks/src/block.js --output-path=assets/blocks/build/ --output-filename=block.build.js",
     "packages-update": "wp-scripts packages-update"
   },
