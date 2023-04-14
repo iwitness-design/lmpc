@@ -44,11 +44,3 @@ require_once trailingslashit( get_stylesheet_directory() )  . 'includes/class-ba
 
 $base = new Base();
 $base->gbblock_init();
-
-
-function astra_force_remove_style() {
-  wp_dequeue_style( 'astra-theme-css' );
-  wp_dequeue_style( 'astra-addon-css' );
-}
-
-add_action( 'wp_enqueue_scripts', 'astra_force_remove_style', 99 );
