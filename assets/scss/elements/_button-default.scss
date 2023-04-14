@@ -7,12 +7,12 @@ body {
 	--cp-button--border-color: var( --cp-color-text-primary );
 	--cp-button--border-color--hover: var(--cp-color-text-primary );
 	--cp-button--border-radius: var(--cp-border-radius-none); 
-	--cp-button--padding: var(--cp-ui--gap-y-x);
+	--cp-button--padding: var(--cp-gap-base) var(--cp-gap--sm);
 	--cp-button--text-align: center;
 	--cp-button--line-height: 1.5;
   --cp-button--font-family: var(--cp-font-family--header);
   --cp-button--font-weight: var(--cp-font-weight--bold);
-  --cp-button--font-size: 16px;
+  --cp-button--font-size: var(--cp-font-size--lg);
 }
 
 .cp-default-button {
@@ -93,19 +93,23 @@ body {
 	
 	// sizes
 	&.is-small {
-		--cp-button--padding: var(--cp-ui--gap-y-x--sm);
+		--cp-button--padding: calc(var(--cp-gap-base) / 2) var(--cp-gap-base);
 		--cp-button--font-size: var(--cp-font-size--sm);
     --cp-button--font-weight: var(--cp-font-weight--normal);
 	}
 	
 	&.is-large {
-		--cp-button--padding: var(--cp-ui--gap-y-x--lg);
+		--cp-button--padding: var(--cp-gap--sm) var(--cp-gap--md);
 	}
+
+  &.is-normal {
+
+  }
 	
 	&.is-fullwidth {
 		width: 100%;
 	}
-	
+
 	// styles
 	&.is-light {
 		--cp-button--bg: var(--cp-color-ui-tan );

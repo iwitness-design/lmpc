@@ -113,6 +113,11 @@
           "name": "S"
         },
         {
+          "size": "var(--cp-gap--main)",
+          "slug": "dynamic",
+          "name": "Dynamic"
+        },
+        {
           "size": "var(--cp-gap--md)",
           "slug": "md",
           "name": "M"
@@ -121,6 +126,11 @@
           "size": "var(--cp-gap--lg)",
           "slug": "lg",
           "name": "L"
+        },
+        {
+          "size": "var(--cp-gap--xl)",
+          "slug": "xl",
+          "name": "XL"
         }
       ],
       "customSpacingSize": false
@@ -309,7 +319,7 @@
           "fontFamily": "var(--cp-font-family--header)"
         },
         "color": {
-          "text": "#000000"
+          "text": "var(--wp--preset--color--primary-brand)"
         }
       },
       "h2": {
@@ -317,7 +327,7 @@
           "fontFamily": "var(--cp-font-family--header)"
         },
         "color": {
-          "text": "#000000"
+          "text": "var(--wp--preset--color--primary-brand)"
         }
       },
       "h3": {
@@ -325,7 +335,7 @@
           "fontFamily": "var(--cp-font-family--header)"
         },
         "color": {
-          "text": "#000000"
+          "text": "var(--wp--preset--color--primary-brand)"
         }
       },
       "h4": {
@@ -334,7 +344,7 @@
           "textTransform": "uppercase"
         },
         "color": {
-          "text": "#000000"
+          "text": "var(--wp--preset--color--primary-brand)"
         }
       },
       "h5": {
@@ -343,7 +353,7 @@
           "textTransform": "uppercase"
         },
         "color": {
-          "text": "#000000"
+          "text": "var(--wp--preset--color--primary-brand)"
         }
       },
       "h6": {
@@ -352,7 +362,7 @@
           "textTransform": "uppercase"
         },
         "color": {
-          "text": "#000000"
+          "text": "var(--wp--preset--color--primary-brand)"
         }
       }
     }
