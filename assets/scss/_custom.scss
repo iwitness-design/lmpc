@@ -237,3 +237,8 @@ p {
 p + *:not(p) {
   margin-top: var(--cp-gap--md);
 }
+
+h1.entry-title {
+  margin-top: var(--cp-gap--xl);
+  font-size: var(--cp-font-size-h1);
+}
