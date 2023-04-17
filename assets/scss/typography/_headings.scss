@@ -8,13 +8,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body .page-title {
-	color: #000000;
+	color: var(--cp-color-text-primary);
 }
 
 %h1, h1, .h1,
 h1.page-title,
 .entry-content h1 {
-	color: #000000;
+	color: var(--cp-color-text-primary);
 	font-size: $font-size-h1 * $mobile-modifier;
 	line-height: $line-height-h1;
 	font-weight: var(--cp-font-weight--bold);
@@ -24,14 +24,14 @@ h1.page-title,
 	}
 	
 	a {
-		color: #000000;
+		color: var(--cp-color-text-primary);
 	}
 }
 
 %h2, h2, .h2,
 h2.page-title,
 .entry-content h2 {
-	color: #000000;
+	color: var(--cp-color-text-primary);
 	font-size: $font-size-h2 * $mobile-modifier;
 	line-height: $line-height-h2;
 	font-weight: var(--cp-font-weight--bold);
@@ -41,13 +41,13 @@ h2.page-title,
 	}
 
 	a {
-		color: #000000;
+		color: var(--cp-color-text-primary);
 	}
 }
 
 %h3, h3, .h3,
 .entry-content h3 {
-	color: #000000;
+	color: var(--cp-color-text-primary);
 	font-size: $font-size-h3 * $mobile-modifier;
 	line-height: $line-height-h3;
 	font-weight: var(--cp-font-weight--bold);
@@ -57,13 +57,13 @@ h2.page-title,
 	}
 
 	a {
-		color: #000000;
+		color: var(--cp-color-text-primary);
 	}
 }
 
 %h4, h4, .h4,
 .entry-content h4 {
-	color: #000000;
+	color: var(--cp-color-text-primary);
 	line-height: $line-height-h4;
 	font-size: $font-size-h4;
 	font-weight: var(--cp-font-weight--bold);
@@ -73,7 +73,7 @@ h2.page-title,
 
 %h5, h5, .h5,
 .entry-content h5 {
-	color: #000000;
+	color: var(--cp-color-text-primary);
 	line-height: $line-height-h5;
 	font-size: $font-size-h5;
 	font-weight: var(--cp-font-weight--bold);
@@ -83,7 +83,7 @@ h2.page-title,
 
 %h6, h6, .h6,
 .entry-content h6 {
-	color: #000000;
+	color: var(--cp-color-text-primary);
 	line-height: $line-height-h6;
 	font-size: $font-size-h6;
 	font-weight: var(--cp-font-weight--bold);

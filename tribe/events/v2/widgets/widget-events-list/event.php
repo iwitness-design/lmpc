@@ -4,7 +4,7 @@
   <?php $this->template( 'widgets/widget-events-list/date-tag', [ 'event' => $event ] ); ?>
 
   <a href="<?php echo esc_url( $event->permalink) ?>">
-    <h4 class='event-title'><?php echo esc_attr( $event->title ) ?></h4>
+    <h6 class='event-title wp-block-heading'><strong><?php echo esc_attr( $event->title ) ?></strong></h6>
   </a>
 
   <?php $this->template( 'widgets/widget-events-list/details' ) ?>

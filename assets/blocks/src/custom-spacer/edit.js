@@ -72,7 +72,7 @@ const ResizableSpacer = ( {
 				position: 'corner',
 				isVisible: isResizing,
 			} }
-			showHandle={ isSelected }
+			showHandle={ false }
 			{ ...props }
 		/>
 	);

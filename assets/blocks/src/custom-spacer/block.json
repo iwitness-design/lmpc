@@ -5,7 +5,22 @@
 	"category": "widgets",
 	"description": "Add spacing between blocks",
 	"supports": {
-		"html": false
+		"anchor": true,
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"__experimentalDefaultControls": {
+				"margin": true
+			}
+		}
+	},
+  "attributes": {
+		"height": {
+			"type": "string",
+			"default": "var:preset|spacing|dynamic"
+		},
+		"width": {
+			"type": "string"
+		}
 	},
 	"textdomain": "lmpc"
 }

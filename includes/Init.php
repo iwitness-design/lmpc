@@ -237,8 +237,13 @@ class Init {
   }
 
   public function enqueue_block_variation_scripts() {
-    wp_register_script( 'lmpc-block-variations', trailingslashit( get_stylesheet_directory_uri() ) . 'assets/js/block-variations.js', '1.0.0' );
-    wp_enqueue_script( 'lmpc-block-variations' );
+    wp_enqueue_script( 
+      'lmpc-block-variations',
+      trailingslashit( get_stylesheet_directory_uri() ) . 'assets/js/block-variations.js',
+      array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
+      '1.0.0',
+      true
+    );
   }
 
 	public function astra_customizer( $config, $customizer ) {
