@@ -2,32 +2,18 @@
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 2,
   "settings": {
-    "typography": {
-      "fontSizes": [
-        {
-          "name": "Small",
-          "size": "var(--cp-font-size--xs)",
-          "slug": "extra-small"
-        },
-        {
-          "name": "Medium",
-          "size": "var(--cp-font-size--sm)",
-          "slug": "small"
-        },
-        {
-          "name": "Large",
-          "size": "var(--cp-font-size)",
-          "slug": "medium"
-        },
-        {
-          "name": "Extra Large",
-          "size": "var(--cp-font-size--lg)",
-          "slug": "large"
-        }
-      ],
+    "useRootPaddingAwareAlignments": false,
+    "appearanceTools": false,
+    "typography": {  
+      "fontSizes": [],
       "fontFamilies": [],
       "customFontSize": false,
-      "lineHeight": false
+      "lineHeight": false,
+      "textDecoration": false,
+      "letterSpacing": false,
+      "fontStyle": false,
+      "fontWeight": false,
+      "textTransform": false
     },
     "color": {
       "background": true,
@@ -103,9 +89,9 @@
       "text": true
     },
     "spacing": {
-      "margin": true,
-      "padding": true,
-      "blockGap": true,
+      "margin": false,
+      "padding": false,
+      "blockGap": false,
       "spacingSizes": [
         {
           "size": "var(--cp-gap--sm)",
@@ -298,12 +284,52 @@
           "style": false,
           "width": false
         }
+      },
+      "core/paragraph": {
+        "typography": {
+          "fontSizes": [
+            {
+              "name": "Small",
+              "size": "var(--cp-font-size--xs)",
+              "slug": "extra-small"
+            },
+            {
+              "name": "Medium",
+              "size": "var(--cp-font-size--sm)",
+              "slug": "small"
+            },
+            {
+              "name": "Large",
+              "size": "var(--cp-font-size)",
+              "slug": "medium"
+            },
+            {
+              "name": "Extra Large",
+              "size": "var(--cp-font-size--lg)",
+              "slug": "large"
+            }
+          ]
+        }
+      },
+      "core/group": {
+        "spacing": {
+          "margin": true,
+          "padding": true,
+          "blockGap": true
+        }
+      },
+      "core/columns": {
+        "spacing": {
+          "margin": true,
+          "padding": true,
+          "blockGap": true
+        }
       }
     }
   },
   "styles": {
     "spacing": {
-      "blockGap": "var(--cp-gap--main)"
+      "blockGap": "var:preset|spacing|sm"
     },
     "blocks": {
       "core/paragraph": {
