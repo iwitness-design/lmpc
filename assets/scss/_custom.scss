@@ -200,9 +200,13 @@
   .event-details {
     padding: var(--cp-gap--sm);
     font-family: var(--cp-font-family--header);
-    font-size: 18px;
+    font-size: var(--cp-font-size--lg);
     color: var(--cp-color-text-primary);
     background-color: #FFFFFF;
+  }
+
+  .lmpc-event-list-widget__header {
+    margin-bottom: var(--cp-gap--main);
   }
   
 }
