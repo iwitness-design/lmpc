@@ -36,11 +36,11 @@ $event_date_attr = $display_date->format( Dates::DBDATEFORMAT );
 ?>
 <div class="event-date">
 	<time datetime="<?php echo esc_attr( $event_date_attr ); ?>" aria-hidden="true">
-		<div class="event-date__monthname">
+		<h5>
 			<?php echo esc_html( $event_month ); ?>
-    </div>
-		<div class="event-date__date">
+    </h5>
+		<h3>
 			<?php echo esc_html( $event_day_num ); ?>
-    </div>
+    </h3>
 	</time>
 </div>

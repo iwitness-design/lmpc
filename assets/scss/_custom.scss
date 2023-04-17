@@ -171,28 +171,22 @@
     padding: 8px 24px;
     text-align: center;
     color: var(--cp-color-ui-tan);
-  }
-  
-  .event-date__monthname {
-    font-size: var(--cp-font-size-h3);
-    font-weight: 700;
-    text-transform: uppercase;
-    line-height: 120%;
-  }
-  
-  .event-date__date {
-    font-size: var(--cp-font-size-h2);
-    font-family: var(--cp-font-family--header);
-    line-height: 120%;
+
+    h5 {
+      font-weight: 700;
+      color: inherit;
+    }
+
+    h3 {
+      font-weight: var(--cp-font-weight--bold);
+      color: inherit;
+    }
   }
   
   .event-title {
     background-color: var(--cp-color-ui-inverted-secondary);
-    text-transform: uppercase;
     text-decoration: none;
     padding: var(--cp-gap--sm);
-    font-family: var(--cp-font-family--base);
-    font-weight: 700;
   }
   
   .event-image {
@@ -212,15 +206,6 @@
   }
   
 }
-
-
-.lmpc-event-list-widget__header {
-  font-size: var(--cp-font-size-h2);
-  font-weight: 600;
-  line-height: 120%;
-  margin-bottom: var(--cp-gap--md);
-}
-
 
 @for $i from 1 through 5 {
   @for $j from 1 through 5 {
