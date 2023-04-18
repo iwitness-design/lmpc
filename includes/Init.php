@@ -39,6 +39,7 @@ class Init {
 	protected function __construct() {
 		$this->actions();
 
+		require_once( 'class-astra-dynamic-css.php' );
 		Custom::get_instance();
 		Shortcodes::get_instance();
 		Live::get_instance();
@@ -62,7 +63,7 @@ class Init {
     add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
     // add_action( 'enqueue_block_assets', [ $this, 'enqueue_block_config' ] );
 
-    add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_variation_scripts' ]);    
+    add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_variation_scripts' ]);
 
 		add_filter( 'astra_customizer_configurations', [ $this, 'astra_customizer' ], 50, 2 );
 		add_filter( 'astra_theme_dynamic_css', function( $css ) {
@@ -237,7 +238,7 @@ class Init {
   }
 
   public function enqueue_block_variation_scripts() {
-    wp_enqueue_script( 
+    wp_enqueue_script(
       'lmpc-block-variations',
       trailingslashit( get_stylesheet_directory_uri() ) . 'assets/js/block-variations.js',
       array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
@@ -305,6 +306,6 @@ class Init {
       'infobox'
     ];
 
-    
+
   }
 }
