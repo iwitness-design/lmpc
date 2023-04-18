@@ -211,23 +211,10 @@
   
 }
 
-@for $i from 1 through 5 {
-  @for $j from 1 through 5 {
-    h#{$i} + h#{$j} {
-      margin-top: var(--cp-gap--md);
-    }
-  }
-}
 
-p {
-  margin-bottom: var(--cp-gap--sm);
-}
-
-p + *:not(p) {
-  margin-top: var(--cp-gap--md);
-}
 
 h1.entry-title {
   margin-top: var(--cp-gap--xl);
   font-size: var(--cp-font-size-h1);
 }
+

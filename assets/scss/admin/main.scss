@@ -1,7 +1,7 @@
 @import 'gutenberg-editor-variables';
-@import '../elements/block-buttons';
+@import '../elements/blocks';
 
-.block-editor-block-list__layout.is-root-container > .wp-block.wp-block-columns {
+.block-editor-block-list__layout.is-root-container:not(.wp-block-cover__innercontainer) > .wp-block.wp-block-columns {
 	&:not(:first-child) {
 		margin-top: var(--cp-gap--xl);
 	}
@@ -12,6 +12,10 @@
 
 }
 
+.wp-block-columns:last-child {
+  margin-bottom: 0;
+}
+
 .editor-styles-wrapper {
 
 	.wp-block-image .aligncenter, .wp-block-image .alignleft, .wp-block-image .alignright, .wp-block-image.aligncenter, .wp-block-image.alignleft, .wp-block-image.alignright {
@@ -19,3 +23,12 @@
 	}
 
 }
+
+.wp-block-cover, .wp-block-cover-image {
+  min-height: 200px;
+}
+
+
+
+
+

@@ -324,12 +324,18 @@
           "padding": true,
           "blockGap": true
         }
+      },
+      "core/cover": {
+        "spacing": {
+          "margin": true,
+          "padding": true
+        }
       }
     }
   },
   "styles": {
     "spacing": {
-      "blockGap": "var:preset|spacing|sm"
+      "blockGap": "var(--wp--preset--spacing--dynamic)"
     },
     "blocks": {
       "core/paragraph": {
