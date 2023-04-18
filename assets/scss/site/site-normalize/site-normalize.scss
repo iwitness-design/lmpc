@@ -46,11 +46,11 @@ img {
     margin-bottom: 1rem;
 }
 
-.wp-block-columns:not(:first-child) {
+.wp-block-columns:not(.wp-block-columns:first-child) {
     margin-top: var(--cp-gap--xl);
 }
 
-.wp-block-columns:not(:last-child) {
+.wp-block-columns:not(.wp-block-columns:last-child) {
     margin-bottom: var(--cp-gap--xl);
 }
 

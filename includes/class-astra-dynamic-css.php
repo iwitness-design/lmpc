@@ -1616,28 +1616,28 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( self::gutenberg_core_patterns_compat() ) {
 
 				$outline_button_css = array(
-					'.wp-block-button.is-style-outline .wp-block-button__link' => array(
-						'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
-						'border-top-width'    => esc_attr( $theme_btn_top_border ),
-						'border-right-width'  => esc_attr( $theme_btn_right_border ),
-						'border-bottom-width' => esc_attr( $theme_btn_bottom_border ),
-						'border-left-width'   => esc_attr( $theme_btn_left_border ),
-					),
-					'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color)' => array(
-						'color' => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
-					),
-					'.wp-block-button.is-style-outline .wp-block-button__link:hover, div.wp-block-button.is-style-outline .wp-block-button__link:focus, div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover, div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color):hover' => array(
-						'color'            => esc_attr( $btn_text_hover_color ),
-						'background-color' => esc_attr( $btn_bg_hover_color ),
-						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
-					),
-					// Adding CSS to highlight current paginated number.
-					'.post-page-numbers.current .page-link, .ast-pagination .page-numbers.current'                    => array(
-						'color'            => astra_get_foreground_color( $theme_color ),
-						'border-color'     => esc_attr( $theme_color ),
-						'background-color' => esc_attr( $theme_color ),
-						'border-radius'    => '2px',
-					),
+					// '.wp-block-button.is-style-outline .wp-block-button__link' => array(
+					// 	'border-color'        => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
+					// 	'border-top-width'    => esc_attr( $theme_btn_top_border ),
+					// 	'border-right-width'  => esc_attr( $theme_btn_right_border ),
+					// 	'border-bottom-width' => esc_attr( $theme_btn_bottom_border ),
+					// 	'border-left-width'   => esc_attr( $theme_btn_left_border ),
+					// ),
+					// 'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color)' => array(
+					// 	'color' => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
+					// ),
+					// '.wp-block-button.is-style-outline .wp-block-button__link:hover, div.wp-block-button.is-style-outline .wp-block-button__link:focus, div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover, div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color):hover' => array(
+					// 	'color'            => esc_attr( $btn_text_hover_color ),
+					// 	'background-color' => esc_attr( $btn_bg_hover_color ),
+					// 	'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
+					// ),
+					// // Adding CSS to highlight current paginated number.
+					// '.post-page-numbers.current .page-link, .ast-pagination .page-numbers.current'                    => array(
+					// 	'color'            => astra_get_foreground_color( $theme_color ),
+					// 	'border-color'     => esc_attr( $theme_color ),
+					// 	'background-color' => esc_attr( $theme_color ),
+					// 	'border-radius'    => '2px',
+					// ),
 				);
 
 				/* Parse CSS from array() -> All media CSS */
@@ -2879,7 +2879,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'margin-right' => 'auto',
 						),
 						'.entry-content [class*="__inner-container"] > *:not(.alignwide):not(p):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(iframe)' => array(
-							'max-width' => '50rem',
+							'max-width' => 'calc(var(--wp--style--global--content-size) - 4rem)',
 							'width'     => '100%',
 						),
 					);
@@ -2928,7 +2928,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'margin-right' => 'auto',
 						),
 						'.wp-block-group.has-background, .entry-content > .wp-block-cover, .entry-content > .wp-block-columns.has-background' => array(
-							'padding'       => '4em',
+							// 'padding'       => '4em',
 							'margin-top'    => '0',
 							'margin-bottom' => '0',
 						),

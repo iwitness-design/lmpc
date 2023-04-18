@@ -1,8 +1,14 @@
+/*
+Custom styles for gutenberg blocks on frontend and backend
+*/
+
 @import '../elements/button-default';
+
 
 body {
   .wp-block-button > .wp-block-button__link,
-  .wp-block-button.is-style-fill .wp-block-button__link {
+  .wp-block-button.is-style-fill .wp-block-button__link,
+  .wp-block-button.is-style-default .wp-block-button__link  {
     @extend .cp-default-button;
   }
   
@@ -27,4 +33,41 @@ body {
   .wp-block-button.is-style-large-outline-button .wp-block-button__link {
     @extend .cp-default-button, .is-large, .is-light;
   }
+}
+
+.wp-block-column .wp-block-cover img {
+  border-radius: var(--cp-border-radius-sm);
+}
+
+.wp-block-column .wp-block-cover .wp-block-cover__inner-container h5.has-background {
+  border-radius: var(--cp-border-radius-sm);
+}
+
+
+.wp-block-cover.alignfull {
+  padding-top: var(--cp-gap--xl);
+  padding-bottom: var(--cp-gap--xl);
+}
+
+.wp-block-cover__inner-container > .wp-block-columns:last-child {
+  margin-bottom: 0;
+}
+
+.wp-bloc
+
+
+@for $i from 1 through 5 {
+  @for $j from 1 through 5 {
+    h#{$i} + h#{$j} {
+      margin-top: var(--cp-gap--md);
+    }
+  }
+}
+
+p {
+  margin-bottom: var(--cp-gap--sm);
+}
+
+p + *:not(p) {
+  margin-top: var(--cp-gap--md);
 }

@@ -76,9 +76,9 @@ if ( ! class_exists( 'Base' ) ) {
 		 */
 		public function gbblock_include_assets() {
 
-			require_once get_stylesheet_directory() . '/includes/class-include-assets.php';
+			require_once get_stylesheet_directory() . '/includes/class-include-block-assets.php';
 
-			$gbblock_assets = new Include_Assets();
+			$gbblock_assets = new Include_Block_Assets();
 			$gbblock_assets->load();
 
 		}

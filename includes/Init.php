@@ -40,6 +40,7 @@ class Init {
 		$this->actions();
 
 		require_once( 'class-astra-dynamic-css.php' );
+    require_once( 'class-astra-gutenberg-editor-css.php' );
 		Custom::get_instance();
 		Shortcodes::get_instance();
 		Live::get_instance();

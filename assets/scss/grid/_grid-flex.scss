@@ -8,7 +8,7 @@
 // width for fluid, full width layouts.
   
 .site-content .ast-container {
-  max-width: 70rem;
+  max-width: var(--wp--style--global--content-size);
 }
 
 .ast-container-fluid, .ast-container {
