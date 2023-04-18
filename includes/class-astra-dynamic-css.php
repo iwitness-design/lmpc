@@ -2864,8 +2864,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					$entry_content_selector           = '.entry-content >';
 					$core_blocks_width_desktop_ui_css = array(
 						'.entry-content > .wp-block-group, .entry-content > .wp-block-media-text, .entry-content > .wp-block-cover, .entry-content > .wp-block-columns' => array(
-							'max-width'    => '58em',
-							'width'        => 'calc(100% - 4em)',
+//							'max-width'    => '58em',
+//							'width'        => 'calc(100% - 4em)',
 							'margin-left'  => 'auto',
 							'margin-right' => 'auto',
 						),
