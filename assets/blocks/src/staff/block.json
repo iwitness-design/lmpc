@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "lmpc/staff",
+	"version": "0.1.0",
+	"title": "Staff List",
+	"category": "widgets",
+	"icon": "businessperson",
+	"description": "Displays list of staff",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "lmpc"
+}

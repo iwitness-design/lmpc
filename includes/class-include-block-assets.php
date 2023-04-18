@@ -11,19 +11,19 @@
 defined( 'ABSPATH' ) || die;
 
 /**
- * Class Include_Assets
+ * Class Include_Block_Assets
  */
-if ( ! class_exists( 'Include_Assets' ) ) {
+if ( ! class_exists( 'Include_Block_Assets' ) ) {
 
 	/**
-	 * Class Include_Assets
+	 * Class Include_Block_Assets
 	 *
 	 * @since 1.0.0
 	 */
-	class Include_Assets {
+	class Include_Block_Assets {
 
 		/**
-		 * Include_Assets constructor.
+		 * Include_Block_Assets constructor.
 		 *
 		 * @since 1.0.0
 		 */
