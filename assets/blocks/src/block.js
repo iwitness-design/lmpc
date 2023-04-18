@@ -3,3 +3,4 @@ import './hero-block/block';
 import './image-block/block';
 import './latest-message/block';
 import './custom-spacer';
+import './staff'

@@ -1,2 +1,21 @@
 @import 'gutenberg-editor-variables';
 @import '../elements/block-buttons';
+
+.block-editor-block-list__layout.is-root-container > .wp-block.wp-block-columns {
+	&:not(:first-child) {
+		margin-top: var(--cp-gap--xl);
+	}
+
+	&:not(:last-child) {
+		margin-bottom: var(--cp-gap--xl);
+	}
+
+}
+
+.editor-styles-wrapper {
+
+	.wp-block-image .aligncenter, .wp-block-image .alignleft, .wp-block-image .alignright, .wp-block-image.aligncenter, .wp-block-image.alignleft, .wp-block-image.alignright {
+		display: table;
+	}
+
+}

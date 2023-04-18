@@ -52,6 +52,12 @@ if ( ! class_exists( 'Register_Dynamic_Blocks' ) ) {
 			 * @since 1.0.0
 			 */
 			$this->gbblock_letest_message_block();
+
+      /**
+       * Staff List block
+       * 
+       */
+      $this->gbblock_staff_block();
 		}
 
 		/**
@@ -109,6 +115,16 @@ if ( ! class_exists( 'Register_Dynamic_Blocks' ) ) {
 			$gbblock_latest_message_block->load();
 		}
 
+    /**
+     * Staff List block.
+     * 
+     */
+
+     public function gbblock_staff_block() {
+      require_once get_stylesheet_directory() . '/includes/blocks/class-gbblock-staff.php';
+      $gbblock_staff_block = new GbBlock_Staff_Block();
+      $gbblock_staff_block->load();
+     }
 	}
 
 }
