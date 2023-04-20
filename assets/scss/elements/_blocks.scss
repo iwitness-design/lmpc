@@ -45,8 +45,8 @@ body {
 
 
 .wp-block-cover.alignfull {
-  padding-top: var(--cp-gap--xl);
-  padding-bottom: var(--cp-gap--xl);
+  padding-top: var(--cp-gap--lg);
+  padding-bottom: var(--cp-gap--lg);
 }
 
 .wp-block-cover__inner-container > .wp-block-columns:last-child {
@@ -68,4 +68,19 @@ p {
 
 p + *:not(p) {
   margin-top: var(--cp-gap--md);
+}
+
+.rounded-sm {
+  overflow: hidden !important;
+  border-radius: var(--cp-border-radius-sm) !important;
+}
+
+.rounded-md {
+  overflow: hidden !important;
+  border-radius: var(--cp-border-radius-md) !important;
+}
+
+.rounded-lg {
+  overflow: hidden !important;
+  border-radius: var(--cp-border-radius) !important;
 }
