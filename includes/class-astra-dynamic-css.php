@@ -1435,7 +1435,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'margin-bottom' => 'unset',
 						),
 						'.wp-block-image.size-full' => array(
-							'margin' => '2rem 0',
+							// 'margin' => '2rem 0',
 						),
 						'.wp-block-separator.has-background' => array(
 							'padding' => '0',
@@ -1444,8 +1444,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'margin-bottom' => '1.6em',
 						),
 						'.wp-block-group'           => array(
-							'padding-top'    => 'var(--cp-gap--xl)',
-							'padding-bottom' => 'var(--cp-gap--xl)',
+							'padding-top'    => 'var(--cp-gap--lg)',
+							'padding-bottom' => 'var(--cp-gap--lg)',
 						),
 						'.wp-block-group__inner-container .wp-block-columns:last-child, .wp-block-group__inner-container :last-child, .wp-block-table table' => array(
 							'margin-bottom' => '0',
@@ -2889,9 +2889,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 					$core_blocks_min_width_tablet_ui_css = array(
 						'.entry-content > .wp-block-group.alignwide.has-background, .entry-content > .wp-block-group.alignfull.has-background, .entry-content > .wp-block-cover.alignwide, .entry-content > .wp-block-cover.alignfull, .entry-content > .wp-block-columns.has-background.alignwide, .entry-content > .wp-block-columns.has-background.alignfull' => array(
-							'margin-top'    => '0',
-							'margin-bottom' => '0',
-							'padding'       => 'var(--cp-gap--xl) var(--cp-gap--md)',
+							// 'margin-top'    => '0',
+							// 'margin-bottom' => '0',
+							'padding'       => 'var(--cp-gap--lg) var(--cp-gap--md)',
 						),
 						'.entry-content > .wp-block-columns.has-background' => array(
 							'margin-bottom' => '0',
@@ -2929,7 +2929,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						),
 						'.wp-block-group.has-background, .entry-content > .wp-block-cover, .entry-content > .wp-block-columns.has-background' => array(
 							// 'padding'       => '4em',
-							'margin-top'    => '0',
+							// 'margin-top'    => '0',
 							'margin-bottom' => '0',
 						),
 						'.entry-content .wp-block-media-text.alignfull .wp-block-media-text__content, .entry-content .wp-block-media-text.has-background .wp-block-media-text__content' => array(

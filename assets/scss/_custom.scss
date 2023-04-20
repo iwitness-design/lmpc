@@ -213,8 +213,16 @@
 
 
 
-h1.entry-title {
+h1.entry-title:first-child {
   margin-top: var(--cp-gap--xl);
   font-size: var(--cp-font-size-h1);
+}
+
+.wp-block-column .wp-block-cover {
+  border-radius: var(--cp-border-radius-sm);
+
+  .wp-block-cover__background {
+    border-radius: var(--cp-border-radius-sm);
+  }
 }
 

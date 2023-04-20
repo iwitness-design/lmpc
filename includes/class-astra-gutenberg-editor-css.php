@@ -856,8 +856,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'margin-bottom' => '1.6em',
 					),
 					'.wp-block-group'                    => array(
-            'padding-top'    => 'var(--cp-gap--xl)',
-            'padding-bottom' => 'var(--cp-gap--xl)',
+            'padding-top'    => 'var(--cp-gap--lg)',
+            'padding-bottom' => 'var(--cp-gap--lg)',
           ),
 					'.wp-block-group__inner-container:last-child, .wp-block-table table' => array(
 						'margin-bottom' => '0',

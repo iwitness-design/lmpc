@@ -1,15 +1,31 @@
 @import 'gutenberg-editor-variables';
 @import '../elements/blocks';
 
-.block-editor-block-list__layout.is-root-container:not(.wp-block-cover__innercontainer) > .wp-block.wp-block-columns {
-	&:not(:first-child) {
-		margin-top: var(--cp-gap--xl);
-	}
 
-	&:not(:last-child) {
-		margin-bottom: var(--cp-gap--xl);
-	}
+.block-editor-block-list__layout.is-root-container:not(.wp-block-cover__innercontainer) {
+  .wp-block-column, .wp.block-group {
+    .wp-block.wp-block-columns:not(:first-child) {
+      margin-top: var(--cp-gap--md);
+    }
+    .wp-block.wp-block-columns:not(:last-child) {
+      margin-bottom: var(--cp-gap--md);
+    }
+  }
 
+  & > .wp-block.wp-block-columns:not(:first-child) {
+    margin-top: var(--cp-gap--xl);
+  }
+  & > .wp-block.wp-block-cover.alignfull:not(:last-child) {
+    margin-bottom: var(--cp-gap--xl);
+  }
+}
+
+
+// columns and full-width cover behave the same
+.block-editor-block-list__layout.is-root-container:not(.wp-block-cover__innercontainer) > .wp-block.wp-block-columns,
+.block-editor-block-list__layout.is-root-container:not(.wp-block-cover__innercontainer) > .wp-block.wp-block-cover.alignfull
+ {
+	
 }
 
 .wp-block-columns:last-child {
