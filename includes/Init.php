@@ -75,6 +75,9 @@ class Init {
 		add_filter( 'astra_get_option_array', [ $this, 'astra_options'], 10, 3 );
 
 		add_filter( 'cpl_topic_object_types', function( $types ) { return [ 'cpl_item', 'cpl_item_type' ]; } );
+
+
+    add_action( 'init', [ $this, 'remove_default_block_patterns' ], 5);
 //		add_action( 'astra_render_mobile_header_column', [ $this, 'add_mobile_logo_link_action' ], 5 );
 //		add_action( 'astra_render_mobile_header_column', [ $this, 'remove_mobile_logo_link_action' ], 15 );
 	}
@@ -246,6 +249,13 @@ class Init {
       '1.0.0',
       true
     );
+  }
+  
+  /**
+   * Removes default block patterns from page editor
+   */
+  public function remove_default_block_patterns() {
+    remove_theme_support( 'core-block-patterns' );
   }
 
 	public function astra_customizer( $config, $customizer ) {

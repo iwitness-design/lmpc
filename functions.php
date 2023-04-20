@@ -44,3 +44,20 @@ require_once trailingslashit( get_stylesheet_directory() )  . 'includes/class-ba
 
 $base = new Base();
 $base->gbblock_init();
+
+add_action( 'rest_api_init', 'lmpc_register_staff_title_meta_field' );
+
+function lmpc_register_staff_title_meta_field() {
+    register_rest_field( 'cp_staff',
+        'staff_title',
+        array(
+            'get_callback'    => 'lmpc_get_custom_staff_title_meta_field',
+            'update_callback' => null,
+            'schema'          => null,
+        )
+    );
+}
+
+function lmpc_get_custom_staff_title_meta_field( $object, $field_name, $request ) {
+    return get_post_meta( $object['id'], 'title', true );
+}

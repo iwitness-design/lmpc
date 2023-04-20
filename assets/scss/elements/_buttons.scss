@@ -7,8 +7,8 @@ body .fl-builder-content .fl-button-wrap a.fl-button,
 button,
 .ast-button,
 .button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+body input[type="button"],
+body input[type="reset"],
+body input[type="submit"] {
 	@extend .cp-default-button;
 }
