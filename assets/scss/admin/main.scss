@@ -45,6 +45,19 @@
 }
 
 
+.block-editor-block-contextual-toolbar {
+  .components-toolbar-group:has( button[aria-label="Bold"] ) {
+    display: none;
+  }
+
+  &:has( .block-editor-block-switcher button[aria-label="Paragraph"] ),
+  &:has( .block-editor-block-switcher button[aria-label="Infobox"] )
+  {
+    .components-toolbar-group:has( button[aria-label="Bold"] ) {
+      display: block;
+    }
+  }  
+} 
 
 
 

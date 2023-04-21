@@ -226,3 +226,6 @@ h1.entry-title:first-child {
   }
 }
 
+.entry-content > .wp-block-columns:last-child {
+  margin-bottom: var(--cp-gap--xl);
+}
