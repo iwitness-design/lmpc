@@ -189,7 +189,7 @@ class Init {
 			'mobile-unit'  => 'em',
 		];
 
-		$options_array['body-font-family'] = "var(--cp-font-family--base)";
+		$options_array['body-font-family'] = "var(--cp-font-family--header)";
 		$options_array['headings-font-family'] = "var(--cp-font-family--header)";
 
 		return $options_array;

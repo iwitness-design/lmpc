@@ -5,7 +5,12 @@
     "useRootPaddingAwareAlignments": false,
     "appearanceTools": false,
     "typography": {  
-      "fontSizes": [],
+      "fontSizes": [
+        {
+          "size": "var(--cp-font-size--sm)",
+          "slug": "sm"
+        }
+      ],
       "fontFamilies": [],
       "customFontSize": false,
       "lineHeight": false,
@@ -337,11 +342,19 @@
     "spacing": {
       "blockGap": "var(--wp--preset--spacing--dynamic)"
     },
+    "typography": {
+      "fontFamily": "var(--cp-font-family--header)"
+    },
     "blocks": {
       "core/paragraph": {
         "typography": {
           "fontFamily": "var(--cp-font-family--header)",
-          "fontSize": "var(--wp--preset--font-size--large)"
+          "fontSize": "var(--cp-font-size--lg)"
+        }
+      },
+      "core/list": {
+        "typography": {
+          "fontFamily": "var(--cp-font-family--header) !important"
         }
       }
     },
