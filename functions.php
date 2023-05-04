@@ -61,3 +61,11 @@ function lmpc_register_staff_title_meta_field() {
 function lmpc_get_custom_staff_title_meta_field( $object, $field_name, $request ) {
     return get_post_meta( $object['id'], 'title', true );
 }
+
+
+
+function inspect_styles() {
+  global $wp_styles;
+  // print_r($wp_styles->queue);
+}
+add_action( 'wp_print_styles', 'inspect_styles' );
