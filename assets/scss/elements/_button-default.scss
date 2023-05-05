@@ -42,7 +42,8 @@ body {
 		width: 1.25em;
 		height: 1.25em;
 		
-		&.is-small {
+		&.is-small,
+    &.is-xsmall {
 			width: 1em;
 			height: 1em;
 		}
@@ -51,7 +52,8 @@ body {
 	i {
 		font-size: 1.25em;
 		
-		&.is-small {
+		&.is-small,
+    &.is-xsmall {
 			font-size: 1em;
 		}
 	}
@@ -92,7 +94,8 @@ body {
 	}
 	
 	// sizes
-	&.is-small {
+	&.is-small,
+  &.is-xsmall {
 		--cp-button--padding: calc(var(--cp-gap-base) / 2) var(--cp-gap-base);
 		--cp-button--font-size: var(--cp-font-size--sm);
     --cp-button--font-weight: var(--cp-font-weight--normal);
@@ -119,11 +122,19 @@ body {
 	}
 	
 	&.is-transparent {
-		--cp-button--color: var(--cp-color-ui-secondary);
-		--cp-button--color--hover: var(--cp-color-ui-inverted-light);
+		--cp-button--color: var(--cp-color-text-primary);
+		--cp-button--color--hover: var(--cp-color-ui-tan);
 		--cp-button--bg: transparent;
-		--cp-button--bg--hover: var(--cp-color-ui-secondary);
-		--cp-button--border-color: var(--cp-button--color);
+		--cp-button--bg--hover: var(--cp-color-text-primary);
+		--cp-button--border-color: var(--cp-color-text-primary);
+	}
+
+  &.is-transparent.is-xsmall {
+		--cp-button--color: var(--cp-color-text-primary);
+		--cp-button--color--hover: var(--cp-color-ui-tan);
+		--cp-button--bg: transparent;
+		--cp-button--bg--hover: var(--cp-color-text-primary);
+		--cp-button--border-color: var(--cp-color-text-primary);
 	}
 	
 	&.is-text {

@@ -11,10 +11,10 @@
   },
   "scripts": {
     "bootstrap": "wpackio-scripts bootstrap",
-    "build": "wpackio-scripts build && wp-scripts build assets/blocks/src/block.js --output-path=assets/blocks/build/ --output-filename=block.build.js",
+    "build": "wpackio-scripts build && wp-scripts build assets/blocks/index.js --output-path=assets/blocks/build/ --output-filename=block.build.js",
     "start": "wpackio-scripts start",
     "archive": "wpackio-scripts pack",
-    "dev:blocks": "wp-scripts start assets/blocks/src/block.js --output-path=assets/blocks/build/ --output-filename=block.build.js",
+    "dev:blocks": "wp-scripts start assets/blocks/index.js --output-path=assets/blocks/build/ --output-filename=block.build.js",
     "packages-update": "wp-scripts packages-update"
   },
   "dependencies": {

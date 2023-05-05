@@ -64,7 +64,7 @@ class Init {
     add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
     // add_action( 'enqueue_block_assets', [ $this, 'enqueue_block_config' ] );
 
-    add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_variation_scripts' ]);
+    add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_scripts' ]);
 
 		add_filter( 'astra_customizer_configurations', [ $this, 'astra_customizer' ], 50, 2 );
 		add_filter( 'astra_theme_dynamic_css', function( $css ) {
@@ -189,7 +189,7 @@ class Init {
 			'mobile-unit'  => 'em',
 		];
 
-		$options_array['body-font-family'] = "var(--cp-font-family--base)";
+		$options_array['body-font-family'] = "var(--cp-font-family--header)";
 		$options_array['headings-font-family'] = "var(--cp-font-family--header)";
 
 		return $options_array;
@@ -241,13 +241,18 @@ class Init {
     $this->enqueue->enqueue( 'admin', 'scripts', [ 'in_footer' => false ]);
   }
 
-  public function enqueue_block_variation_scripts() {
+  public function enqueue_block_editor_scripts() {
     wp_enqueue_script(
       'lmpc-block-variations',
       trailingslashit( get_stylesheet_directory_uri() ) . 'assets/js/block-variations.js',
       array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
-      '1.0.0',
-      true
+      '1.0.0'
+    );
+    wp_enqueue_script(
+      'lmpc-block-editor-script',
+      trailingslashit( get_stylesheet_directory_uri() ) . 'assets/js/gbblock-editor.js',
+      array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
+      '1.0.0'
     );
   }
   
@@ -320,3 +325,5 @@ class Init {
 
   }
 }
+
+
