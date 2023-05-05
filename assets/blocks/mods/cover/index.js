@@ -72,41 +72,31 @@ addFilter(
   coverClickableControls
 )
 
+function getSaveElement( element, block, attributes ) {
+  if(block.name === 'core/cover' && attributes.clickable && attributes.clickableUrl) {
+    const { children, ...props } = element.props
+    return (
+      <div {...props}>
+        { children }
+        {
+          <a 
+            href={attributes.clickableUrl}
+            style={{
+              position: 'absolute',
+              inset: '0',
+              zIndex: 1
+            }}
+          ></a>
+        }
+      </div>
+    )
+  }
+
+  return element;
+}
+
 addFilter(
   'blocks.getSaveElement',
   'lmpc/cover-clickable-controls',
-  function( element, block, attributes ) {
-    
-    if(block.name === 'core/cover' && attributes.clickable && attributes.clickableUrl) {
-
-      const { children, ...props } = element.props
-
-      console.log("Cover code", element, block, attributes)
-
-
-      return (
-        <div {...props}>
-          { children }
-          {
-            <a 
-              href={attributes.clickableUrl}
-              style={{
-                position: 'absolute',
-                inset: '0',
-                zIndex: 1
-              }}
-            ></a>
-          }
-        </div>
-      )
-
-      // element.children.push(
-      //   <a href={}
-      // )
-
-
-    }
-
-    return element;
-  }
+  getSaveElement
 )
