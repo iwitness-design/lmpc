@@ -69,3 +69,35 @@ function inspect_styles() {
   // print_r($wp_styles->queue);
 }
 add_action( 'wp_print_styles', 'inspect_styles' );
+
+
+function lmpc_apply_exclude_filters_to_query_loop( $query, $block, $page ) {
+
+  // var_dump( $query, $block );
+
+  foreach( $block->context['query'] as $key => $terms ) {
+    if( str_ends_with( $key, '_exclude' ) ) {
+      $taxonomy = substr( $key, 0, -8 );
+
+      if( ! is_taxonomy_viewable( $taxonomy ) || empty( $terms ) ) {
+        continue;
+      }
+
+      if( !isset( $query['tax_query'] ) ) {
+        $query['tax_query'] = array();
+      }
+
+      array_push( $query['tax_query'], array(
+        'taxonomy' => $taxonomy,
+        'terms' => array_filter( array_map( 'intval', $terms ) ),
+        'include_children' => false,
+        'operator' => 'NOT IN'
+      ) );
+    }
+  }
+
+
+  return $query;
+}
+
+add_filter( 'query_loop_block_query_vars', 'lmpc_apply_exclude_filters_to_query_loop', 10, 3);
