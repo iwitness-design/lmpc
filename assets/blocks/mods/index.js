@@ -1,2 +1,2 @@
-import './cover'
+// import './cover'
 import './query'
