@@ -28,10 +28,6 @@
 }
 
 
-.cp-not-live a[href$="/live/"] i {
-	//display: none;
-}
-
 .cp-location-header {
 	@extend %text-xlarge;
 	height: 100%;
@@ -146,7 +142,6 @@
 }
 
 .tribe-common {
-
   .event-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
@@ -208,15 +203,18 @@
   .lmpc-event-list-widget__header {
     margin-bottom: var(--cp-gap--main);
   }
-  
 }
-
-
 
 h1.entry-title:first-child {
   margin-top: var(--cp-gap--xl);
   font-size: var(--cp-font-size-h1);
+  font-weight: var(--cp-font-weight--bold);
 }
+
+.entry-header + .entry-content > .wp-block-column:first-child {
+  margin-top: var(--cp-gap--xl);
+}
+
 
 .wp-block-column .wp-block-cover {
   border-radius: var(--cp-border-radius-sm);
@@ -230,13 +228,9 @@ h1.entry-title:first-child {
   margin-bottom: var(--cp-gap--xl);
 }
 
-
 .aaab__accordion_title {
   color: var(--cp-color-text-primary) !important;
 }
-
-
-
 
 /*
 Gravity form modifications
@@ -263,7 +257,6 @@ body .gform_wrapper .gform_body .gfield_description {
   font-size: var(--cp-font-size--sm);
   font-weight: 400;
 }
-
 
 body .gform_wrapper .gform_heading .gform_description {
   font-size: var(--cp-font-size--sm);
