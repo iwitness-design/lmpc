@@ -28,10 +28,6 @@
 }
 
 
-.cp-not-live a[href$="/live/"] i {
-	//display: none;
-}
-
 .cp-location-header {
 	@extend %text-xlarge;
 	height: 100%;
@@ -146,7 +142,6 @@
 }
 
 .tribe-common {
-
   .event-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
@@ -208,15 +203,18 @@
   .lmpc-event-list-widget__header {
     margin-bottom: var(--cp-gap--main);
   }
-  
 }
-
-
 
 h1.entry-title:first-child {
   margin-top: var(--cp-gap--xl);
   font-size: var(--cp-font-size-h1);
+  font-weight: var(--cp-font-weight--bold);
 }
+
+.entry-header + .entry-content > .wp-block-column:first-child {
+  margin-top: var(--cp-gap--xl);
+}
+
 
 .wp-block-column .wp-block-cover {
   border-radius: var(--cp-border-radius-sm);
@@ -230,11 +228,44 @@ h1.entry-title:first-child {
   margin-bottom: var(--cp-gap--xl);
 }
 
-
 .aaab__accordion_title {
   color: var(--cp-color-text-primary) !important;
 }
 
-.gform_wrapper.gform_legacy_markup_wrapper input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+/*
+Gravity form modifications
+*/
+
+body .gform_wrapper .gform_body input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
   padding: var(--cp-gap-base) var(--cp-gap--sm);
+}
+
+body .gform_wrapper .gform_body {
+  font-size: var(--cp-font-size);
+  color: var(--cp-color-text-primary);
+}
+
+body .gform_wrapper .gform_body .gfield_label {
+  font-size: var(--cp-font-size);
+}
+
+body .gform_wrapper .gform_body .gform-field-label--type-sub {
+  font-size: var(--cp-font-size--sm);
+}
+
+body .gform_wrapper .gform_body .gfield_description {
+  font-size: var(--cp-font-size--sm);
+  font-weight: 400;
+}
+
+body .gform_wrapper .gform_heading .gform_description {
+  font-size: var(--cp-font-size--sm);
+}
+
+body .gform_wrapper .gform-body .top_label li.gsection.gf_scroll_text .gsection_description {
+  font-size: var(--cp-font-size--sm);
+}
+
+body .gform_wrapper .gform-body .gsection_title {
+  font-size: var(--cp-font-size--lg);
 }

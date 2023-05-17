@@ -1,12 +1,29 @@
+/**
+ * Wordpress dependencies
+ */
 import { __ } from '@wordpress/i18n';
-import { addFilter, applyFilters } from '@wordpress/hooks'
+import { addFilter } from '@wordpress/hooks'
+import { createHigherOrderComponent } from '@wordpress/compose'
 import {
   ToggleControl,
-  TextControl
+  TextControl,
+  PanelBody
 } from '@wordpress/components'
 import {
-  InspectorAdvancedControls
+  InspectorAdvancedControls, 
+  InspectorControls
 } from '@wordpress/block-editor'
+import { select } from '@wordpress/data'
+import { 
+  getBlockType
+} from '@wordpress/blocks'
+
+/**
+ * Internal dependencies
+ */
+import AspectRatioDropdown from './aspect-ratio-dropdown';
+import getSaveElement from './save';
+import addCoverControls from './edit';
 
 function addCoverAttributes(settings, name) {
 	if (typeof settings.attributes !== 'undefined') {
@@ -19,6 +36,10 @@ function addCoverAttributes(settings, name) {
         clickableUrl: {
           type: 'string',
           default: ''
+        },
+        aspectRatio: {
+          type: 'string',
+          default: '3 / 2'
         }
 			});
 		}
@@ -33,67 +54,11 @@ addFilter(
 );
 
 
-function coverClickableControls( BlockEdit ) {
-  return (props) => {
-    const { attributes, setAttributes, isSelected } = props
-
-    return (
-      <>
-        <BlockEdit { ...props } />
-        {
-          isSelected && props.name === 'core/cover' &&
-          <>
-            <InspectorAdvancedControls>
-              <ToggleControl 
-                label={ __("Make Cover Clickable", 'lmpc' ) }
-                checked={ !!attributes.clickable }
-                onChange={(clickable) => setAttributes({ clickable })}
-              />
-
-              {
-                attributes.clickable &&
-                <TextControl 
-                  label={ __( "Url", 'lmpc' ) }
-                  value={ attributes.clickableUrl }
-                  onChange={(clickableUrl) => setAttributes({ clickableUrl })}
-                />
-              }
-            </InspectorAdvancedControls>
-          </>
-        }
-      </>
-    )
-  }
-}
-
 addFilter(
   'editor.BlockEdit',
   'lmpc/cover-clickable-controls',
-  coverClickableControls
+  addCoverControls
 )
-
-function getSaveElement( element, block, attributes ) {
-  if(block.name === 'core/cover' && attributes.clickable && attributes.clickableUrl) {
-    const { children, ...props } = element.props
-    return (
-      <div {...props}>
-        { children }
-        {
-          <a 
-            href={attributes.clickableUrl}
-            style={{
-              position: 'absolute',
-              inset: '0',
-              zIndex: 1
-            }}
-          ></a>
-        }
-      </div>
-    )
-  }
-
-  return element;
-}
 
 addFilter(
   'blocks.getSaveElement',
