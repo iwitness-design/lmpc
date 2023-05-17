@@ -1,0 +1,9 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "lmpc/card-cover",
+	"title": "Card Cover",
+	"apiVersion": 2,
+	"category": "widgets",
+	"description": "A card with a background",
+	"textdomain": "lmpc"
+}
