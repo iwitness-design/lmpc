@@ -236,6 +236,12 @@ body .ast-archive-description .ast-archive-title {
   font-weight: var(--cp-font-weight--bold);
 }
 
+
+/* embed causing weird spacing issues */
+.wp-block-embed__wrapper:before {
+  position: absolute;
+}
+
 /*
 Gravity form modifications
 */
