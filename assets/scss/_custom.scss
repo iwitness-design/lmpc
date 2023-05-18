@@ -232,6 +232,10 @@ h1.entry-title:first-child {
   color: var(--cp-color-text-primary) !important;
 }
 
+body .ast-archive-description .ast-archive-title {
+  font-weight: var(--cp-font-weight--bold);
+}
+
 /*
 Gravity form modifications
 */
@@ -269,3 +273,5 @@ body .gform_wrapper .gform-body .top_label li.gsection.gf_scroll_text .gsection_
 body .gform_wrapper .gform-body .gsection_title {
   font-size: var(--cp-font-size--lg);
 }
+
+
