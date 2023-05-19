@@ -22,10 +22,14 @@
 
 
 // columns and full-width cover behave the same
-.block-editor-block-list__layout.is-root-container:not(.wp-block-cover__innercontainer) > .wp-block.wp-block-columns,
-.block-editor-block-list__layout.is-root-container:not(.wp-block-cover__innercontainer) > .wp-block.wp-block-cover.alignfull
- {
+// .block-editor-block-list__layout.is-root-container:not(.wp-block-cover__innercontainer) > .wp-block.wp-block-columns,
+// .block-editor-block-list__layout.is-root-container:not(.wp-block-cover__innercontainer) > .wp-block.wp-block-cover.alignfull
+//  {
 	
+// }
+
+body .editor-styles-wrapper a:where(:not(.wp-element-button)) {
+  text-decoration: underline;
 }
 
 
@@ -60,6 +64,7 @@
   margin-top: var(--cp-gap--xl);
 }
 
+body .edit-post-visual-editor__post-title-wrapper,
 body .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper {
   max-width: 71rem;
 }

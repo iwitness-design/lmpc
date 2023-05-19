@@ -236,10 +236,17 @@ body .ast-archive-description .ast-archive-title {
   font-weight: var(--cp-font-weight--bold);
 }
 
+body a:where(:not(.wp-element-button)) {
+  text-decoration: underline;
+}
 
 /* embed causing weird spacing issues */
 .wp-block-embed__wrapper:before {
   position: absolute;
+}
+
+.wp-block-embed:not(:last-child) {
+  margin-bottom: var(--cp-gap--lg);
 }
 
 /*
