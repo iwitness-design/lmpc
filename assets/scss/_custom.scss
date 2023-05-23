@@ -237,8 +237,8 @@ body .ast-archive-description .ast-archive-title {
 }
 
 h1, h2, h3, h4, h5, h6, p {
-	& > a:where(:not(.wp-element-button)),
-	& > a:where(:not(.wp-element-button)):hover {
+	a:where(:not(.wp-element-button)),
+	a:where(:not(.wp-element-button)):hover {
 		text-decoration: underline;
 		color: inherit;
 	}
