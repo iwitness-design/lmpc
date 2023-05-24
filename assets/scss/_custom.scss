@@ -236,8 +236,12 @@ body .ast-archive-description .ast-archive-title {
   font-weight: var(--cp-font-weight--bold);
 }
 
-body a:where(:not(.wp-element-button)) {
-  text-decoration: underline;
+h1, h2, h3, h4, h5, h6, p {
+	a:where(:not(.wp-element-button)),
+	a:where(:not(.wp-element-button)):hover {
+		text-decoration: underline;
+		color: inherit;
+	}
 }
 
 /* embed causing weird spacing issues */
@@ -288,3 +292,7 @@ body .gform_wrapper .gform-body .gsection_title {
 }
 
 
+.cp-staff-detail {
+	padding-top: var(--cp-gap--xl);
+	padding-bottom: var(--cp-gap--xl);
+}
