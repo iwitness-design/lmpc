@@ -301,3 +301,11 @@ body .gform_wrapper .gform-body .gsection_title {
 	margin-top: var(--cp-gap--main);
 	margin-bottom: var(--cp-gap--main);
 }
+
+/* CP Groups filters styling */
+
+.cp-button.cp-groups-filter--dropdown-button,
+.cp-button.cp-groups-filter--search--box {
+	justify-content: start;
+	background-color: white;
+}
