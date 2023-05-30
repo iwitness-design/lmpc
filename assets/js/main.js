@@ -55,23 +55,15 @@ jQuery(function($) {
 	const urlParams = new URLSearchParams(window.location.search);
 	const tab = urlParams.get('tab');
 
-	console.log("Searching for url params", tab)
-
 	if(!tab) return
 
 	const tabsElem = document.querySelector('.wp-block-atbs-tabs')
 
 	if(!tabsElem) return
 
-	console.log("Found tabs element and beginning scroll")
-
-	
-
 	const tabsNavigation = tabsElem.querySelector('.atbs__tab-labels')
 	const targetTab = tabsNavigation.querySelector(`[aria-controls="${tab}"]`)
 
-	console.log("Target tab:", targetTab)
-	
 	setTimeout(() => {
 		tabsElem.scrollIntoView({ block: "center" })
 		targetTab?.click()
