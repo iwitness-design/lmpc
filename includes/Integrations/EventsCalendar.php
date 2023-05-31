@@ -48,6 +48,7 @@ class EventsCalendar {
 	protected function actions() {
 		add_filter( 'tribe_events_pro_inline_placeholders', [ $this, 'inline_placeholders' ] );
 		add_action( 'init', [ $this, 'register_ministry_tax' ], 500 );
+		add_filter( 'tribe_events_views_v2_view_repository_args', [ $this, 'maybe_add_ministry_to_query' ], 10, 2 );
 		
 		// filterbar
 		add_filter( 'tribe_context_locations', [ $this, 'filter_context_locations' ] );
@@ -63,6 +64,21 @@ class EventsCalendar {
 		$placeholders['{date_flag}'] = [ $this, 'date_flag' ];
 		
 		return $placeholders;
+	}
+
+	public function maybe_add_ministry_to_query( $repository_args, $context ) {
+
+		if ( ! $ministry = $context->get( 'cp_ministry' ) ) {
+			return $repository_args;
+		}
+
+		$repository_args['tax_query'][] = array( array(
+			'taxonomy' => 'cp_ministry',
+			'terms'    => $ministry,
+			'operator' => 'IN'
+		) );
+
+		return $repository_args;
 	}
 
 	/**
