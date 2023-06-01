@@ -315,3 +315,13 @@ body .gform_wrapper .gform-body .gsection_title {
 	justify-content: space-between;
 	background-color: white;
 }
+
+/* Tabs */
+
+body .wp-block-atbs-tabs .atbs__tab-label {
+	color: #4195D6;
+
+	&.active {
+		color: var(--cp-color-brand-primary) !important;
+	}
+}
