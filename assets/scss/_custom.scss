@@ -307,8 +307,11 @@ body .gform_wrapper .gform-body .gsection_title {
 
 /* CP Groups filters styling */
 
+.cp-groups-filter {
+	--cp-button--font-size: var(--cp-font-size--base);
+}
 .cp-button.cp-groups-filter--dropdown-button,
 .cp-button.cp-groups-filter--search--box {
-	justify-content: start;
+	justify-content: space-between;
 	background-color: white;
 }
