@@ -23,8 +23,6 @@ if ( ! class_exists( 'Base' ) ) {
 		 * @since 1.0.0
 		 */
 		public function gbblock_init() {
-			
-			add_filter( 'use_block_editor_for_post', array( $this, 'gbblock_maybe_load_gutenberg_for_post_type' ), 15, 2 );
 
 			/**
 			 * Enqueue Assets.
@@ -36,23 +34,7 @@ if ( ! class_exists( 'Base' ) ) {
 			 */
 			$this->gbblock_register_dynamic_blocks();
 
-			
-		}
 
-		/**
-		 * Load Gutenberg Block Editor for specif post type.
-		 *
-		 * @param bool   $can_edit
-		 * @param object $post
-		 *
-		 * @return void
-		 */
-		public function gbblock_maybe_load_gutenberg_for_post_type( $can_edit, $post ) {
-			$enable_for_post_types = array( 'post', 'page' );
-			if ( in_array( $post->post_type, $enable_for_post_types, true ) ) {
-					return true;
-			}
-			return false;
 		}
 
 		/**
