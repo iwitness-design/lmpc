@@ -19,10 +19,10 @@ get_header(); ?>
 
       <p><?php echo the_content() ?></p>
 
-      <?php the_post_navigation( array(
+      <?php /* the_post_navigation( array(
         "prev_text" => "← " . __( "Previous Staff", "lmpc" ),
         "next_text" => __( "Next Staff", "lmpc" ) . " →"
-      ) ) ?>
+      ) ) */ ?>
     <?php endwhile; ?>
   <?php endif; ?>
 
