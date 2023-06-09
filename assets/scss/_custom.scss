@@ -1,3 +1,6 @@
+body .cpl-button {
+	--cp-button--font-size: var(--cp-font-size--sm);
+}
 
 .tribe-events-event-meta {
 	width: 100% !important;
@@ -147,7 +150,7 @@
     grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     grid-gap: var(--cp-gap--lg);
   }
-  
+
   .event {
     position: relative;
     overflow: hidden;
@@ -155,7 +158,7 @@
     flex-direction: column;
     height: max-content;
   }
-  
+
   .event-date {
     position: absolute;
     top: 0;
@@ -177,13 +180,13 @@
       color: inherit;
     }
   }
-  
+
   .event-title {
     background-color: var(--cp-color-ui-inverted-secondary);
     text-decoration: none;
     padding: var(--cp-gap--sm);
   }
-  
+
   .event-image {
     height: 190px;
     max-width: 100%;
@@ -191,7 +194,7 @@
     object-fit: cover;
     object-position: center;
   }
-  
+
   .event-details {
     padding: var(--cp-gap--sm);
     font-family: var(--cp-font-family--header);
@@ -304,12 +307,25 @@ body .gform_wrapper .gform-body .gsection_title {
 
 /* CP Groups filters styling */
 
+.cp-groups-filter {
+	--cp-button--font-size: var(--cp-font-size--base);
+}
 .cp-button.cp-groups-filter--dropdown-button,
 .cp-button.cp-groups-filter--search--box {
-	justify-content: start;
+	justify-content: space-between;
 	background-color: white;
 }
 
 .cp-groups-filter--facet > label {
 	text-transform: lowercase;
+}
+
+/* Tabs */
+body .entry-content .wp-block-atbs-tabs .atbs__tab-label {
+	color: #4195D6;
+
+	&.active {
+		color: var(--cp-color-brand-primary) !important;
+		font-weight: var(--cp-font-weight--bold);
+	}
 }
