@@ -62,12 +62,12 @@ img {
 .entry-content {
   & > .wp-block-columns, 
   & > .wp-block-cover.alignfull:not(.wp-block-cover:first-child) {
-      margin-top: var(--cp-gap--xl);
+      margin-top: var(--cp-gap--lg);
   }
 
   & > .wp-block-columns, 
   & > .wp-block-cover.alignfull:not(.wp-block-cover:last-child) {
-      margin-bottom: var(--cp-gap--xl);
+      margin-bottom: var(--cp-gap--lg);
   }
 }
 

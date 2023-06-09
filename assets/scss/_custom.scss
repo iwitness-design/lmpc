@@ -206,13 +206,13 @@
 }
 
 h1.entry-title:first-child {
-  margin-top: var(--cp-gap--xl);
+  margin-top: var(--cp-gap--lg);
   font-size: var(--cp-font-size-h1);
   font-weight: var(--cp-font-weight--bold);
 }
 
 .entry-header + .entry-content > .wp-block-column:first-child {
-  margin-top: var(--cp-gap--xl);
+  margin-top: var(--cp-gap--lg);
 }
 
 
@@ -225,7 +225,7 @@ h1.entry-title:first-child {
 }
 
 .entry-content > .wp-block-columns:last-child {
-  margin-bottom: var(--cp-gap--xl);
+  margin-bottom: var(--cp-gap--lg);
 }
 
 .aaab__accordion_title {
@@ -293,8 +293,8 @@ body .gform_wrapper .gform-body .gsection_title {
 
 
 .cp-staff-detail {
-	padding-top: var(--cp-gap--xl);
-	padding-bottom: var(--cp-gap--xl);
+	padding-top: var(--cp-gap--lg);
+	padding-bottom: var(--cp-gap--lg);
 }
 
 .wp-block-query {
