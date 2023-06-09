@@ -101,3 +101,35 @@ function lmpc_apply_exclude_filters_to_query_loop( $query, $block, $page ) {
 }
 
 add_filter( 'query_loop_block_query_vars', 'lmpc_apply_exclude_filters_to_query_loop', 10, 3);
+
+// add_action( 'quick_edit_custom_box', 'lmpc_quickedit_series', 10, 3 );
+// add_action( 'manage_pages_custom_column', 'lmpc_populate_quickedit_series', 10, 2 );
+// add_action( 'save_post', 'lmpc_save_quickedit_series' );
+
+// function lmpc_populate_quickedit_series( $column_name, $post_id ) {
+//   if( $column_name != 'item_type' ) {
+//     return;
+//   }
+
+//   $post = get_post( $post_id );
+
+//   $meta = get_post_meta( $post_id );
+
+//   echo "My Custom Column";
+// }
+
+// function lmpc_quickedit_series( $column, $post_type, $taxonomy ) {
+//   if( $column != 'item_type' || $post_type != 'cpl_item' ) {
+//     return;
+//   } 
+  
+  
+// }
+
+// function lmpc_save_quickedit_series() {
+//   if( !wp_verify_nonce( $_POST[ '_inline_edit' ], 'inlineeditnonce' ) ) {
+//     return;
+//   }
+
+  
+// }
