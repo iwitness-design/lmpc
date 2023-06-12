@@ -354,7 +354,7 @@
       },
       "core/list": {
         "typography": {
-          "fontFamily": "var(--cp-font-family--header) !important"
+          "fontFamily": "var(--cp-font-family--header)"
         }
       }
     },

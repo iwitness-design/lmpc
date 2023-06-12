@@ -329,3 +329,20 @@ body .entry-content .wp-block-atbs-tabs .atbs__tab-label {
 		font-weight: var(--cp-font-weight--bold);
 	}
 }
+
+
+/* Switch order on single event page */
+
+body .tribe-events-single>.tribe_events>.tribe-events-event-image {
+	order: 0;
+}
+
+body .tribe-events-event-meta.primary, body .tribe-events-event-meta.secondary {
+	order: 0;
+	border-bottom: 1px solid var(--tec-color-border-secondary);
+  margin-bottom: var(--tec-spacer-7);
+}
+
+.main-navigation .menu-item a {
+	font-family: var(--cp-font-family--base);
+}
