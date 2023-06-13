@@ -332,7 +332,6 @@ body .entry-content .wp-block-atbs-tabs .atbs__tab-label {
 
 
 /* Switch order on single event page */
-
 body .tribe-events-single>.tribe_events>.tribe-events-event-image {
 	order: 0;
 }
@@ -343,6 +342,17 @@ body .tribe-events-event-meta.primary, body .tribe-events-event-meta.secondary {
   margin-bottom: var(--tec-spacer-7);
 }
 
+.main-navigation .menu-item a {
+	font-family: var(--cp-font-family--base);
+}
+
+
+/* Hide carrot on main menu */
+span.dropdown-menu-toggle.ast-header-navigation-arrow {
+	display: none;
+}
+
+/* theme.json overrides astra menu styles, so setting menu font here */
 .main-navigation .menu-item a {
 	font-family: var(--cp-font-family--base);
 }
