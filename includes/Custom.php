@@ -48,23 +48,44 @@ class Custom {
 		add_filter( 'cp_connect_pco_event_args', [ $this, 'event_args' ] );
 		add_filter( 'cp_connect_process_items', [ $this, 'filter_groups' ], 10, 2 );
 		add_action( 'admin_init', [ $this, 'update_sermon_meta' ] );
+		add_filter( 'cp_resources_resource_post_types', [ $this, 'make_series_resource'] );
 	}
 
 	/** Actions **************************************/
+
+	/**
+	 * Make series a Resource always
+	 *
+	 * @since  1.0.0
+	 *
+	 * @param $resource_types
+	 *
+	 * @return mixed
+	 * @author Tanner Moushey, 6/16/23
+	 */
+	public function make_series_resource( $resource_types ) {
+		if ( function_exists( 'cp_library' ) ) {
+			if ( cp_library()->setup->post_types->item_type_enabled() ) {
+				$resource_types[] = cp_library()->setup->post_types->item_type->post_type;
+			}
+		}
+
+		return $resource_types;
+	}
 
 	public function update_sermon_meta() {
 		if ( ! isset( $_GET['update-sermon-meta'] ) ) {
 			return;
 		}
-		
+
 		$sermons = get_posts( [ 'post_type' => 'cpl_item', 'posts_per_page' => 9999 ] );
-		
+
 		foreach( $sermons as $sermon ) {
 			$item = Item::get_instance_from_origin( $sermon->ID );
-			
+
 			if ( $audio = $item->get_meta_value( 'audio_url' ) ) {
 				 parse_str( parse_url( $audio )['query'], $results );
-				 
+
 				 if ( ! empty( $results['url'] ) ) {
 					 $item->update_meta_value( 'audio_url', $results['url'] );
 				 }
@@ -81,7 +102,7 @@ class Custom {
 	}
 	/**
 	 * Customize event details
-	 * 
+	 *
 	 * @param $args
 	 *
 	 * @return mixed
@@ -94,10 +115,10 @@ class Custom {
 		unset( $args['post_excerpt'] );
 		return $args;
 	}
-	
+
 	/**
 	 * Show registration button if registration is active
-	 * 
+	 *
 	 * @since  1.0.0
 	 *
 	 * @author Tanner Moushey
@@ -106,13 +127,13 @@ class Custom {
 		if ( ! $registration_url = get_post_meta( get_the_ID(), 'registration_url', true ) ) {
 			return;
 		}
-		
+
 		printf( '<div><a href="%s" class="cp-button is-large" target="_blank">Register Now</a></div>', $registration_url );
 	}
 
 	/**
 	 * Remove Unique Groups from Group import
-	 * 
+	 *
 	 * @param $items
 	 * @param $integration
 	 *
@@ -125,13 +146,13 @@ class Custom {
 		if ( 'groups' != $integration->type ) {
 			return $items;
 		}
-		
+
 		foreach( $items as $key => $item ) {
 			if ( in_array( 'Unique Groups', $item['group_type'] ) ) {
 				unset( $items[ $key ] );
 			}
 		}
-		
+
 		return $items;
 	}
 }
