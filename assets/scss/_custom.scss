@@ -214,6 +214,10 @@ h1.entry-title:first-child {
   font-weight: var(--cp-font-weight--bold);
 }
 
+h1.entry-title {
+	font-size: var(--cp-font-size-h1);
+}
+
 .entry-header + .entry-content > .wp-block-column:first-child {
   margin-top: var(--cp-gap--lg);
 }
@@ -345,4 +349,26 @@ body .tribe-events-event-meta.primary, body .tribe-events-event-meta.secondary {
 
 .main-navigation .menu-item a {
 	font-family: var(--cp-font-family--base);
+}
+
+/* Events archive page */
+body h1.cp-events-title {
+	margin-bottom: var(--cp-gap--md);
+}
+
+body div.cp-events-intro {
+	margin-bottom: var(--cp-gap--lg);
+}
+
+.cp-events-intro {
+	display: flex;
+	gap: var(--cp-gap--sm);
+	position: relative;
+}
+
+.cp-events-intro .wp-block-button {
+	min-width: 112px;
+	// position:absolute;
+	// bottom: 0;
+	float: right;
 }
