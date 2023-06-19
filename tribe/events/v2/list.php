@@ -52,7 +52,7 @@ if ( empty( $disable_event_search ) ) {
     <h1 class="entry-title cp-events-title"><?php esc_html_e( 'Events', 'lmpc' ); ?></h1>
 
     <div class="cp-events-intro">
-      <p class='wp-block-paragraph'><?php esc_html_e( 'Below are a list of featured events. For a more complete list of events and activities, click on the link to the right.', 'lmpc' ) ?></p>
+      <p class='wp-block-paragraph'><?php esc_html_e( 'Below is a list of featured events. For a more complete list of events and activities, click on the link to the right.', 'lmpc' ) ?></p>
       <div class="wp-block-button is-style-outline-button is-style-small-button"><a href='/calendar' class="wp-block-button__link wp-element-button"><?php esc_html_e( 'View Facilities Calendar', 'lmpc' ) ?></a></div>
     </div>
 
