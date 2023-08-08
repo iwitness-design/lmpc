@@ -40,10 +40,10 @@ class CP_URL_Test {
 			if( ! $url ) continue;
 
 			$headers = get_headers($url);
- 
+
 			if ( ! $headers ) {
 				WP_CLI::log("Unable to get headers for URL: " . $url);
-				continue; 
+				continue;
 			}
 
 			if( strpos( $headers[0], '404' ) !== false ) {
@@ -59,14 +59,14 @@ class CP_URL_Test {
 
 	/**
 	 * Downloads and sideloads URLs from a .txt file
-	 * 
-	 * 
+	 *
+	 *
 	 * [--file=<file>]
 	 * : The path to the .txt file
-	 * 
+	 *
 	 * [--d=<debug>]
 	 * : Whether or not to output debug information
-	 * 
+	 *
 	 * [--count=<count>]
 	 * : The number of URLs to migrate
 	 */
@@ -112,10 +112,12 @@ class CP_URL_Test {
 
 		$progress = CLI_Utils\make_progress_bar( "Sideloading " . $linecount  . " URLs", $linecount, 1000 );
 
-		WP_CLI::success( "Starting URL Migration" );
+		WP_CLI::log( "Starting URL Migration" );
 
 		if( $handle ) {
 			while( $linecount > 0 ) {
+
+				$progress->tick();
 				$linecount--;
 
 				$line = fgets($handle);
@@ -127,8 +129,6 @@ class CP_URL_Test {
 				if( is_wp_error( $result ) ) {
 					WP_CLI::warning( "Error downloading and sideloading URL: " . $url );
 				}
-
-				$progress->tick();
 			}
 		}
 
@@ -139,9 +139,9 @@ class CP_URL_Test {
 
 	/**
 	 * Downloads and sideloads file, using exact same filename, to the media library
-	 * 
+	 *
 	 * @param string $url
-	 * 
+	 *
 	 * @return int|\WP_Error
 	 */
 	protected function download_and_sideload_url( $url, $debug = false ) {
@@ -181,8 +181,7 @@ class CP_URL_Test {
 
 		if( $debug ) {
 			WP_CLI::log( "Original Upload path: " . $old_path );
-
-			WP_CLI::success( "Moved file from {$url} to " . wp_get_attachment_url( $id ) );
+			WP_CLI::log( "Moved file from {$url} to " . wp_get_attachment_url( $id ) );
 		}
 
 		return $id;
