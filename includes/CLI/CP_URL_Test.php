@@ -1,5 +1,8 @@
 <?php
 
+use \WP_CLI as WP_CLI;
+use \WP_CLI\Utils as CLI_Utils;
+
 
 // Make the `cp` command available to WP-CLI
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
@@ -29,7 +32,7 @@ class CP_URL_Test {
 		$fp = fopen( __DIR__ . '/invalid_urls.txt', 'a');
 		$invalid_url_count = 0;
 
-		WP_CLI::success( "Starting URL Test" );
+
 
 		foreach( $array as $url ) {
 			$url = $url[0];
@@ -58,37 +61,80 @@ class CP_URL_Test {
 	 * Downloads and sideloads URLs from a .txt file
 	 * 
 	 * 
-	 * [--file_path=<file>]
+	 * [--file=<file>]
 	 * : The path to the .txt file
+	 * 
+	 * [--d=<debug>]
+	 * : Whether or not to output debug information
+	 * 
+	 * [--count=<count>]
+	 * : The number of URLs to migrate
 	 */
 	public function migrate_urls( $args, $assoc_args ) {
 		$assoc_args = wp_parse_args( $assoc_args, array(
-			'file_path' => ABSPATH
+			'file' => null,
+			'd' => false,
+			'count' => 'all'
 		) );
 
-		if( ! $assoc_args['file_path'] ) {
+		if( ! $assoc_args['file'] ) {
 			WP_CLI::error( "Please provide a file path" );
 			return;
 		}
 
-		$handle = fopen( $assoc_args['file_path'], 'r' );
+		$debug = $assoc_args['d'];
+
+		$count = $assoc_args['count'];
+
+		if( $count !== 'all' ) {
+			$count = absint( $count );
+		}
+
+
+
+		$handle = fopen( $assoc_args['file'], 'r' );
+
+		// get line count
+
+		if( $count === 'all' ) {
+			$linecount = 0;
+			while( !feof( $handle ) ) {
+				fgets( $handle );
+				$linecount++;
+			}
+			// start back at beggining of file
+			rewind( $handle );
+		}
+		else {
+			$linecount = $count;
+		}
+
+
+		$progress = CLI_Utils\make_progress_bar( "Sideloading " . $linecount  . " URLs", $linecount, 1000 );
 
 		WP_CLI::success( "Starting URL Migration" );
 
 		if( $handle ) {
-			while(($line = fgets($handle)) !== false) {
+			while( $linecount > 0 ) {
+				$linecount--;
+
+				$line = fgets($handle);
+
 				$url = str_replace( "https://lmpc.org", "https://old.lmpc.org", trim( $line ) );
 
-				$result = $this->download_and_sideload_url( $url );
+				$result = $this->download_and_sideload_url( $url, $debug );
 
 				if( is_wp_error( $result ) ) {
-					WP_CLI::log( "Error downloading and sideloading URL: " . $url );
+					WP_CLI::warning( "Error downloading and sideloading URL: " . $url );
 				}
-				else {
-					WP_CLI::log( "Successfully downloaded and sideloaded URL: " . $url );
-				}
+
+				$progress->tick();
 			}
 		}
+
+		$progress->finish();
+
+		WP_CLI::success( "Migration complete" );
 	}
 
 	/**
@@ -98,7 +144,7 @@ class CP_URL_Test {
 	 * 
 	 * @return int|\WP_Error
 	 */
-	protected function download_and_sideload_url( $url ) {
+	protected function download_and_sideload_url( $url, $debug = false ) {
 		$tmp = download_url( $url );
 
 		if( is_wp_error( $tmp ) ) {
@@ -133,9 +179,11 @@ class CP_URL_Test {
 		// Update the attachment metadata
 		update_attached_file( $id, $new_path );
 
-		WP_CLI::log( "Moving file from " . $old_path . " to " . $new_path );
+		if( $debug ) {
+			WP_CLI::log( "Original Upload path: " . $old_path );
 
-		WP_CLI::log( "New file URL: " . wp_get_attachment_url( $id ) );
+			WP_CLI::success( "Moved file from {$url} to " . wp_get_attachment_url( $id ) );
+		}
 
 		return $id;
 	}
