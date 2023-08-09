@@ -41,6 +41,8 @@ class Init {
 
 		require_once( 'class-astra-dynamic-css.php' );
     require_once( 'class-astra-gutenberg-editor-css.php' );
+		require_once( __DIR__ . '/CLI/CP_URL_Test.php' );
+
 		Custom::get_instance();
 		Shortcodes::get_instance();
 		Live::get_instance();
