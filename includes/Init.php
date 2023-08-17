@@ -40,7 +40,7 @@ class Init {
 		$this->actions();
 
 		require_once( 'class-astra-dynamic-css.php' );
-    require_once( 'class-astra-gutenberg-editor-css.php' );
+		require_once( 'class-astra-gutenberg-editor-css.php' );
 		require_once( __DIR__ . '/CLI/CP_URL_Test.php' );
 
 		Custom::get_instance();
@@ -63,10 +63,10 @@ class Init {
 		// enqueue our stuff before Astra so that our stylesheet is before inline styles output by Astra
 		add_filter( 'astra_enqueue_theme_assets', [ $this, 'enqueue_main_style' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_scripts' ], 2 );
-    add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
-    // add_action( 'enqueue_block_assets', [ $this, 'enqueue_block_config' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin_scripts' ] );
+		// add_action( 'enqueue_block_assets', [ $this, 'enqueue_block_config' ] );
 
-    add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_scripts' ]);
+		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_block_editor_assets' ], 99, 0 );
 
 		add_filter( 'astra_customizer_configurations', [ $this, 'astra_customizer' ], 50, 2 );
 		add_filter( 'astra_theme_dynamic_css', function( $css ) {
@@ -79,9 +79,9 @@ class Init {
 		add_filter( 'cpl_topic_object_types', function( $types ) { return [ 'cpl_item', 'cpl_item_type' ]; } );
 
 
-    add_action( 'init', [ $this, 'remove_default_block_patterns' ], 5);
-//		add_action( 'astra_render_mobile_header_column', [ $this, 'add_mobile_logo_link_action' ], 5 );
-//		add_action( 'astra_render_mobile_header_column', [ $this, 'remove_mobile_logo_link_action' ], 15 );
+		add_action( 'init', [ $this, 'remove_default_block_patterns' ], 5);
+		// add_action( 'astra_render_mobile_header_column', [ $this, 'add_mobile_logo_link_action' ], 5 );
+		// add_action( 'astra_render_mobile_header_column', [ $this, 'remove_mobile_logo_link_action' ], 15 );
 	}
 
 	/** Actions **************************************/
@@ -228,48 +228,44 @@ class Init {
 		if ( isset( $wp_styles->registered['astra-theme-css'] ) ) {
 			$wp_styles->registered['astra-theme-css']->src = get_stylesheet_uri();
 		}
-
 		$this->enqueue->enqueue( 'theme', 'dynamic', [ 'in_footer' => false ] );
-
 	}
 
+	public function enqueue_admin_scripts() {}
 
-  public function enqueue_admin_scripts() {
-    $this->enqueue->enqueue( 'admin', 'styles', [ 'in_footer' => false ]);
-    $this->enqueue->enqueue( 'admin', 'dynamic', [ 'in_footer' => false ]);
-  }
+	public function enqueue_block_config() {
+		$this->enqueue->enqueue( 'admin', 'scripts', [ 'in_footer' => false ]);
+	}
 
-  public function enqueue_block_config() {
-    $this->enqueue->enqueue( 'admin', 'scripts', [ 'in_footer' => false ]);
-  }
-
-  public function enqueue_block_editor_scripts() {
-    wp_enqueue_script(
-      'lmpc-block-variations',
-      trailingslashit( get_stylesheet_directory_uri() ) . 'assets/js/block-variations.js',
-      array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
-      '1.0.0'
-    );
-    wp_enqueue_script(
-      'lmpc-block-editor-script',
-      trailingslashit( get_stylesheet_directory_uri() ) . 'assets/js/gbblock-editor.js',
-      array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
-      '1.0.0'
-    );
-  }
+	public function enqueue_block_editor_assets() {
+		wp_enqueue_script(
+			'lmpc-block-variations',
+			trailingslashit( get_stylesheet_directory_uri() ) . 'assets/js/block-variations.js',
+			array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
+			'1.0.0'
+		);
+		wp_enqueue_script(
+			'lmpc-block-editor-script',
+			trailingslashit( get_stylesheet_directory_uri() ) . 'assets/js/gbblock-editor.js',
+			array( 'wp-blocks', 'wp-dom-ready', 'wp-edit-post' ),
+			'1.0.0'
+		);
+		$this->enqueue->enqueue( 'admin', 'dynamic', [ 'in_footer' => false ]);
+		$this->enqueue->enqueue( 'admin', 'styles', [ 'in_footer' => false ]);
+	}
   
-  /**
-   * Removes default block patterns from page editor
-   */
-  public function remove_default_block_patterns() {
-    remove_theme_support( 'core-block-patterns' );
-  }
+	/**
+	 * Removes default block patterns from page editor
+	 */
+	public function remove_default_block_patterns() {
+		remove_theme_support( 'core-block-patterns' );
+	}
 
 	public function astra_customizer( $config, $customizer ) {
 
 		foreach( $config as $key => $item ) {
 			if ( isset( $item['name'] ) && 'section-typography' === $item['name'] ) {
-//				unset( $config[ $key ] );
+				// unset( $config[ $key ] );
 			}
 		}
 		return $config;
@@ -317,15 +313,6 @@ class Init {
 	public function get_api_namespace() {
 		return $this->get_id() . '/v1';
 	}
-
-
-  public function init_blocks() {
-    $blocks = [
-      'infobox'
-    ];
-
-
-  }
 }
 
 
