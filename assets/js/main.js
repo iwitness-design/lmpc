@@ -57,17 +57,23 @@ import 'selectize';
 	
 		if(!tab) return
 	
-		const tabsElem = document.querySelector('.wp-block-atbs-tabs')
+		const tabsElem = document.querySelector('.wp-block-ub-tabbed-content')
 	
 		if(!tabsElem) return
-	
-		const tabsNavigation = tabsElem.querySelector('.atbs__tab-labels')
-		const targetTab = tabsNavigation.querySelector(`[aria-controls="${tab}"]`)
+
+		const tabItems = [
+			...tabsElem.querySelectorAll('.wp-block-ub-tabbed-content-accordion-toggle'),
+			...tabsElem.querySelectorAll('[role="tab"]')
+		]
 	
 		setTimeout(() => {
 			tabsElem.scrollIntoView({ block: "center" })
-			targetTab?.click()
-		}, 10 )	
+			tabItems.forEach(elem => {
+				if(elem.innerHTML === tab) {
+					elem.click();
+				}
+			})
+		}, 10 )
 	});
 
 })(jQuery);
