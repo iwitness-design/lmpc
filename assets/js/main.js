@@ -49,33 +49,4 @@ import 'selectize';
 
 		return Array.prototype.slice.call(parent.querySelectorAll(selector), 0);
 	}	
-
-
-	$(window).on('load', () => {
-		const urlParams = new URLSearchParams(window.location.search);
-		const tab = urlParams.get('tab');
-	
-		if(!tab) return
-	
-		const tabsElem = document.querySelector('.wp-block-ub-tabbed-content')
-	
-		if(!tabsElem) return
-
-		const tabItems = [
-			...tabsElem.querySelectorAll('.wp-block-ub-tabbed-content-accordion-toggle'),
-			...tabsElem.querySelectorAll('[role="tab"]')
-		]
-	
-		setTimeout(() => {
-			tabsElem.scrollIntoView({ block: "center" })
-			tabItems.forEach(elem => {
-				if(elem.innerText.trim() === tab) {
-					if(typeof ub_handleTabEvent === 'function') {
-						ub_handleTabEvent(elem)
-					}
-				}
-			})
-		}, 10 )
-	});
-
 })(jQuery);
