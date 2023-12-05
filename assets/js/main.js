@@ -69,8 +69,10 @@ import 'selectize';
 		setTimeout(() => {
 			tabsElem.scrollIntoView({ block: "center" })
 			tabItems.forEach(elem => {
-				if(elem.innerHTML === tab) {
-					elem.click();
+				if(elem.innerText.trim() === tab) {
+					if(typeof ub_handleTabEvent === 'function') {
+						ub_handleTabEvent(elem)
+					}
 				}
 			})
 		}, 10 )
