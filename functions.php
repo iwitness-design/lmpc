@@ -173,3 +173,18 @@ add_action('init', function () {
         remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
     }
 });
+
+
+function lmpc_cpl_item_sort_order( $query ) {
+    if ( ! is_admin() || ! $query->is_main_query() ) {
+        return;
+    }
+
+    $screen = get_current_screen();
+    if ( $screen && 'edit-cpl_item' === $screen->id && ! isset( $_GET['orderby'] ) ) {
+        $query->set( 'orderby', 'date' );
+        $query->set( 'order', 'desc' );
+    }
+}
+
+add_action( 'pre_get_posts', 'lmpc_cpl_item_sort_order' );
