@@ -2,7 +2,7 @@
 @import "variables-site/typography";
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Source+Serif+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
-body {
+:root {
 	--cp-color--primary: #ffffff;
 	--cp--background: transparent;
 	--cp--text-color: inherit;
@@ -20,7 +20,7 @@ body {
 	--cp-color-ui-secondary: #378A8A;
 	--cp-color-ui-inverted: #CADCEE;
 	--cp-color-ui-inverted-light: #F6F0ED;
-  --cp-color-ui-inverted-secondary: #BCD8D8;
+  	--cp-color-ui-inverted-secondary: #BCD8D8;
 	--cp-color-ui-tan: #FBF9F6;
   
 	--cp-color-ui-success: #378A8A;
@@ -79,7 +79,7 @@ body {
 	--cp-gap--lg: calc( var(--cp-gap-base) * 8 );
 	--cp-gap--xl: calc( var(--cp-gap-base) * 16 );
 	--cp-gap--xxl: calc( var(--cp-gap-base) * 32 );
-  --cp-gap--main: var(--cp-gap--md);
+  	--cp-gap--main: var(--cp-gap--md);
 	
 	--cp-ui--gap-y--sm: calc( var(--cp-gap-base) * .5 );
 	--cp-ui--gap-x--sm: var(--cp-gap-base );
@@ -107,7 +107,7 @@ body {
 }
 
 @media(max-width: 600px) {
-  body {
+  :root {
     --cp-gap--main: var(--cp-gap--sm);
   }
 }
