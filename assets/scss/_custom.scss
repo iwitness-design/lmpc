@@ -382,3 +382,7 @@ span.dropdown-menu-toggle.ast-header-navigation-arrow {
 .main-navigation .menu-item a {
 	font-family: var(--cp-font-family--base);
 }
+
+.site-footer a:hover {
+	color: var(--cp-color-ui-inverted);
+} 

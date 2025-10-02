@@ -49,25 +49,4 @@ import 'selectize';
 
 		return Array.prototype.slice.call(parent.querySelectorAll(selector), 0);
 	}	
-
-
-	$(window).on('load', () => {
-		const urlParams = new URLSearchParams(window.location.search);
-		const tab = urlParams.get('tab');
-	
-		if(!tab) return
-	
-		const tabsElem = document.querySelector('.wp-block-atbs-tabs')
-	
-		if(!tabsElem) return
-	
-		const tabsNavigation = tabsElem.querySelector('.atbs__tab-labels')
-		const targetTab = tabsNavigation.querySelector(`[aria-controls="${tab}"]`)
-	
-		setTimeout(() => {
-			tabsElem.scrollIntoView({ block: "center" })
-			targetTab?.click()
-		}, 10 )	
-	});
-
 })(jQuery);

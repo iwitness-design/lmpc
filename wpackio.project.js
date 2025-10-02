@@ -47,12 +47,12 @@ module.exports = {
 				return merge(config, customRules);
 			},
 		},
-    {
+		{
 			name: 'admin',
 			entry: {
 				styles: ['./assets/scss/admin/main.scss'],
 				dynamic: ['./assets/scss/dynamic-font-size.scss'],
-        scripts: ['./assets/js/block-variations.js']
+				scripts: ['./assets/js/block-variations.js']
 			},
 			webpackConfig: (config, merge, appDir, isDev) => {
 				const customRules = {
