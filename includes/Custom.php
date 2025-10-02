@@ -49,6 +49,17 @@ class Custom {
 		add_filter( 'cp_connect_process_items', [ $this, 'filter_groups' ], 10, 2 );
 		add_action( 'admin_init', [ $this, 'update_sermon_meta' ] );
 		add_filter( 'cp_resources_resource_post_types', [ $this, 'make_series_resource'] );
+
+		add_action( 'template_redirect', function() {
+			if ( ! is_singular( 'cp_resource' ) ) {
+				return;
+			}
+
+			if ( $url = get_post_meta( get_the_ID(), 'resource_url', true ) ) {
+				wp_redirect( $url, 302 );
+				exit;
+			}
+		} );
 	}
 
 	/** Actions **************************************/
