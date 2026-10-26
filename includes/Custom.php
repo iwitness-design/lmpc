@@ -55,9 +55,15 @@ class Custom {
 				return;
 			}
 
-			if ( $url = get_post_meta( get_the_ID(), 'resource_url', true ) ) {
-				wp_redirect( $url, 302 );
-				exit;
+			try {
+				$resource = new \CP_Resources\Controllers\Resource( get_the_ID(), true );
+				if ( $url = $resource->model->get_meta_value( 'resource_url' ) ) {
+					wp_redirect( $url, 302 );
+					exit;
+				}
+			} catch ( \ChurchPlugins\Exception $e ) {
+				error_log( $e );
+				return;
 			}
 		} );
 	}
