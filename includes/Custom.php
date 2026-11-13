@@ -49,6 +49,12 @@ class Custom {
 		add_filter( 'cp_connect_process_items', [ $this, 'filter_groups' ], 10, 2 );
 		add_action( 'admin_init', [ $this, 'update_sermon_meta' ] );
 		add_filter( 'cp_resources_resource_post_types', [ $this, 'make_series_resource'] );
+		add_action( 'pre_get_posts', function( $query ) {
+			if ( is_admin() && $query->is_main_query() && $query->get('post_type') === 'cpl_item' && empty( $_GET['orderby'] ) ) {
+				$query->set( 'orderby', 'date' );
+				$query->set( 'order', 'DESC' ); // Sorting by newest first
+			}
+		} );
 
 		add_action( 'template_redirect', function() {
 			if ( ! is_singular( 'cp_resource' ) ) {
