@@ -41,6 +41,7 @@ class Init {
 
 		require_once( 'class-astra-dynamic-css.php' );
 		require_once( 'class-astra-gutenberg-editor-css.php' );
+		require_once( 'class-gf-require-list-columns.php' );
 		require_once( __DIR__ . '/CLI/CP_URL_Test.php' );
 
 		Custom::get_instance();
@@ -49,6 +50,8 @@ class Init {
 		Integrations\BB::get_instance();
 		Integrations\TinyMCE::get_instance();
 		Integrations\EventsCalendar::get_instance();
+
+		new \GFRequireListColumns( 53 );
 	}
 
 	/**
