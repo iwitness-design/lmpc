@@ -4855,5 +4855,393 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 			return apply_filters( 'astra_get_option_woo_support_global_settings', isset( $astra_settings['woo_support_global_settings'] ) ? false : true );
 		}
+
+		/**
+		 * Dynamic CSS to make Sidebar Sticky.
+		 *
+		 * @return string Sticky Sidebar CSS.
+		 * @since 4.4.0
+		 */
+		public static function astra_sticky_sidebar_css() {
+			$css = '';
+			if ( astra_get_option( 'site-sticky-sidebar', false ) ) {
+				$sidebar_sticky_css        = array(
+					'.ast-sticky-sidebar .sidebar-main' => array(
+						'top'        => '50px',
+						'position'   => 'sticky',
+						'overflow-y' => 'auto',
+					),
+				);
+				$sidebar_webkit_sticky_css = array(
+					'.ast-sticky-sidebar .sidebar-main' => array(
+						'position' => '-webkit-sticky',
+					),
+				);
+
+				$css .= astra_parse_css(
+					$sidebar_sticky_css,
+					astra_get_tablet_breakpoint( '', 1 )
+				);
+
+				$css .= astra_parse_css(
+					$sidebar_webkit_sticky_css,
+					astra_get_tablet_breakpoint( '', 1 )
+				);
+			}
+			return $css;
+		}
+
+		/**
+		 * Dynamic CSS for default forms styling improvements.
+		 *
+		 * @return string Dynamic CSS.
+		 * @since 4.6.0
+		 */
+		public static function astra_default_forms_styling_dynamic_css() {
+			$css                       = '';
+			$enable_site_accessibility = astra_get_option( 'site-accessibility-toggle', false );
+			$is_dark_palette           = Astra_Global_Palette::is_dark_palette();
+
+			$forms_default_styling_css = array(
+				'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], input[type=date], select, textarea' => array(
+					'font-size'     => '16px',
+					'font-style'    => 'normal',
+					'font-weight'   => '400',
+					'line-height'   => '24px',
+					'width'         => '100%',
+					'padding'       => '12px 16px',
+					'border-radius' => '4px',
+					'box-shadow'    => '0px 1px 2px 0px rgba(0, 0, 0, 0.05)',
+					'color'         => 'var(--ast-form-input-text, #475569)',
+				),
+				'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], input[type=date], select' => array(
+					'height' => '40px',
+				),
+				'input[type="date"]'      => array(
+					'border-width' => '1px',
+					'border-style' => 'solid',
+					'border-color' => 'var(--ast-border-color)',
+					'background'   => 'var( --ast-global-color-secondary, var(--ast-global-color-5) )',
+				),
+				'input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus' => array(
+					'border-color' => 'var(--ast-global-color-0, #046BD2)',
+					'box-shadow'   => 'none',
+					'outline'      => 'none',
+					'color'        => 'var(--ast-form-input-focus-text, #475569)',
+				),
+				'label, legend'           => array(
+					'color'       => 'var(--ast-global-color-2, #111827 )',
+					'font-size'   => '14px',
+					'font-style'  => 'normal',
+					'font-weight' => '500',
+					'line-height' => '20px',
+				),
+				'select'                  => array(
+					'padding' => '6px 10px',
+				),
+				'fieldset'                => array(
+					'padding'       => '30px',
+					'border-radius' => '4px',
+				),
+				'button, .ast-button, .button, input[type="button"], input[type="reset"], input[type="submit"]' . ( astra_button_consistency_compatibility() ? ', a:where(.wp-block-button__link)' : '' ) => array(
+					'border-radius' => '4px',
+					'box-shadow'    => '0px 1px 2px 0px rgba(0, 0, 0, 0.05)',
+				),
+				':root'                   => array(
+					'--ast-comment-inputs-background' => $is_dark_palette ? 'var( --ast-global-color-secondary, var(--ast-global-color-5) )' : '#FFF',
+				),
+				'::placeholder'           => array(
+					'color' => 'var(--ast-form-field-color, #9CA3AF)',
+				),
+				'::-ms-input-placeholder' => array( /* Edge 12-18 */
+					'color' => 'var(--ast-form-field-color, #9CA3AF)',
+				),
+			);
+
+			if ( defined( 'WPCF7_VERSION' ) ) {
+				$wpcf7_dynamic_css         = array(
+					'.wpcf7 input.wpcf7-form-control:not([type=submit]), .wpcf7 textarea.wpcf7-form-control' => array(
+						'padding' => '12px 16px',
+					),
+					'.wpcf7 select.wpcf7-form-control' => array(
+						'padding' => '6px 10px',
+					),
+					'.wpcf7 input.wpcf7-form-control:not([type=submit]):focus, .wpcf7 select.wpcf7-form-control:focus, .wpcf7 textarea.wpcf7-form-control:focus' => array(
+						'border-color' => 'var(--ast-global-color-0, #046BD2)',
+						'box-shadow'   => 'none',
+						'outline'      => 'none',
+						'color'        => 'var(--ast-form-input-focus-text, #475569)',
+					),
+					'.wpcf7 .wpcf7-not-valid-tip'      => array(
+						'color'       => '#DC2626',
+						'font-size'   => '14px',
+						'font-weight' => '400',
+						'line-height' => '20px',
+						'margin-top'  => '8px',
+					),
+					'.wpcf7 input[type=file].wpcf7-form-control' => array(
+						'font-size'     => '16px',
+						'font-style'    => 'normal',
+						'font-weight'   => '400',
+						'line-height'   => '24px',
+						'width'         => '100%',
+						'padding'       => '12px 16px',
+						'border-radius' => '4px',
+						'box-shadow'    => '0px 1px 2px 0px rgba(0, 0, 0, 0.05)',
+						'color'         => 'var(--ast-form-input-text, #475569)',
+					),
+				);
+				$forms_default_styling_css = array_merge( $forms_default_styling_css, $wpcf7_dynamic_css );
+			}
+
+			if ( class_exists( 'GFForms' ) ) {
+				$gravity_forms_dynamic_css = array(
+					'input[type="radio"].gfield-choice-input:checked, input[type="checkbox"].gfield-choice-input:checked, .ginput_container_consent input[type="checkbox"]:checked' => array(
+						'border-color'     => 'inherit',
+						'background-color' => 'inherit',
+					),
+					'input[type="radio"].gfield-choice-input:focus, input[type="checkbox"].gfield-choice-input:focus, .ginput_container_consent input[type="checkbox"]:focus' => array(
+						'border-color' => 'var(--ast-global-color-0, #046BD2)',
+						'box-shadow'   => 'none',
+						'outline'      => 'none',
+						'color'        => 'var(--ast-form-input-focus-text, #475569)',
+					),
+				);
+				$forms_default_styling_css = array_merge( $forms_default_styling_css, $gravity_forms_dynamic_css );
+			}
+
+			// Default form styling accessibility options compatibility.
+			if ( $enable_site_accessibility ) {
+				$outline_style          = astra_get_option( 'site-accessibility-highlight-type' );
+				$outline_color          = astra_get_option( 'site-accessibility-highlight-color' );
+				$outline_input_style    = astra_get_option( 'site-accessibility-highlight-input-type' );
+				$outline_input_color    = astra_get_option( 'site-accessibility-highlight-input-color' );
+				$input_highlight        = ( 'unset' !== $outline_input_style );
+				$selected_outline_style = $input_highlight ? $outline_input_style : $outline_style;
+				$selected_outline_color = $input_highlight ? $outline_input_color : $outline_color;
+				$forms_default_styling_css['input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus'] = array(
+					'border-color' => $selected_outline_color ? $selected_outline_color : '#046BD2',
+					'box-shadow'   => 'none',
+					'outline'      => 'none',
+					'color'        => 'var(--ast-form-input-focus-text, #475569)',
+				);
+
+				// Contact form 7 accessibility compatibility.
+				if ( defined( 'WPCF7_VERSION' ) ) {
+					$forms_default_styling_css['.wpcf7 input.wpcf7-form-control:not([type=submit]):focus, .wpcf7 select.wpcf7-form-control:focus, .wpcf7 textarea.wpcf7-form-control:focus'] = array(
+						'border-style' => $selected_outline_style ? $selected_outline_style : 'inherit',
+						'border-color' => $selected_outline_color ? $selected_outline_color : '#046BD2',
+						'border-width' => 'thin',
+						'box-shadow'   => 'none',
+						'outline'      => 'none',
+						'color'        => 'var(--ast-form-input-focus-text, #475569)',
+					);
+				}
+
+				// Gravity forms accessibility compatibility.
+				if ( class_exists( 'GFForms' ) ) {
+					$forms_default_styling_css['input[type="radio"].gfield-choice-input:focus, input[type="checkbox"].gfield-choice-input:focus, .ginput_container_consent input[type="checkbox"]:focus'] = array(
+						'border-style' => $selected_outline_style ? $selected_outline_style : 'inherit',
+						'border-color' => $selected_outline_color ? $selected_outline_color : '#046BD2',
+						'border-width' => 'thin',
+						'box-shadow'   => 'none',
+						'outline'      => 'none',
+						'color'        => 'var(--ast-form-input-focus-text, #475569)',
+					);
+				}
+			}
+
+			return $css . astra_parse_css( $forms_default_styling_css );
+		}
+
+		/**
+		 * Check if fullwidth layout with sidebar is supported.
+		 * Old users - yes
+		 * New users - no
+		 *
+		 * @return bool true|false.
+		 * @since 4.2.0
+		 */
+		public static function astra_fullwidth_sidebar_support() {
+			$astra_settings = astra_get_options();
+			return apply_filters( 'astra_get_option_fullwidth_sidebar_support', isset( $astra_settings['fullwidth_sidebar_support'] ) ? false : true );
+		}
+
+		/**
+		 * Core Comment & Search Button Styling Compatibility.
+		 * Old Users - Will not reflect directly.
+		 * New Users - Direct reflection
+		 *
+		 * @return bool true|false.
+		 * @since 4.2.2
+		 */
+		public static function astra_core_form_btns_styling() {
+			$astra_settings = astra_get_options();
+			return apply_filters( 'astra_core_form_btns_styling', isset( $astra_settings['v4-2-2-core-form-btns-styling'] ) ? false : true );
+		}
+
+		/**
+		 * Load Blog Layout static CSS when it is enabled.
+		 *
+		 * @since 4.6.0
+		 */
+		public static function blog_layout_static_css() {
+			return '.ast-blog-layout-6-grid .ast-blog-featured-section:before { content: ""; }';
+		}
+
+		/**
+		 * Improve full screen search Submit button style.
+		 *
+		 * @since 4.4.0
+		 * @return bool false if it is an existing user, true if not.
+		 */
+		public static function astra_4_4_0_compatibility() {
+			$astra_settings = astra_get_options();
+			return apply_filters( 'astra_addon_upgrade_fullscreen_search_submit_style', isset( $astra_settings['v4-4-0-backward-option'] ) ? false : true );
+		}
+
+		/**
+		 * Check version 4.5.0 backward compatibility.
+		 *
+		 * @since 4.5.0
+		 * @return bool false if it is an existing user, true if not.
+		 */
+		public static function astra_4_5_0_compatibility() {
+			$astra_settings = astra_get_options();
+			return apply_filters( 'astra_upgrade_color_styles', isset( $astra_settings['v4-5-0-backward-option'] ) ? false : true );
+		}
+
+		/**
+		 * Check version 4.9.0 backward compatibility.
+		 *
+		 * @since 4.9.0
+		 * @return bool false if it is an existing user, true if not.
+		 */
+		public static function astra_4_9_0_compatibility() {
+			$astra_settings = astra_get_options();
+			return apply_filters( 'astra_dark_palette_backward', isset( $astra_settings['v4-9-0-backward-option'] ) ? false : true );
+		}
+
+		/**
+		 * In 4.6.0 version we are having new stylings.
+		 * 1. Comments area refined.
+		 * 2. Defaults improvement for single-blog layouts.
+		 * 3. Form default UI improved.
+		 *
+		 * @return bool true|false.
+		 * @since 4.6.0
+		 */
+		public static function astra_4_6_0_compatibility() {
+			$astra_settings = astra_get_options();
+			return apply_filters( 'astra_get_option_v4-6-0-backward-option', isset( $astra_settings['v4-6-0-backward-option'] ) ? false : true );
+		}
+
+		/**
+		 * In 4.6.2 version we are having new stylings.
+		 * 1. Keeping meta featured image disable option useless for old users.
+		 *
+		 * @return bool true|false.
+		 * @since 4.6.2
+		 */
+		public static function astra_4_6_2_compatibility() {
+			$astra_settings = astra_get_options();
+			return apply_filters( 'astra_get_option_v4-6-2-backward-option', isset( $astra_settings['v4-6-2-backward-option'] ) ? false : true );
+		}
+
+		/**
+		 * Upgrade Astra default button stylings & compatibility with Spectra buttons.
+		 *
+		 * @return bool true|false.
+		 * @since 4.6.4
+		 */
+		public static function astra_4_6_4_compatibility() {
+			$astra_settings = astra_get_options();
+			return apply_filters( 'astra_get_option_btn-stylings-upgrade', isset( $astra_settings['btn-stylings-upgrade'] ) ? false : true );
+		}
+
+		/**
+		 * Handle backward compatibility for heading `clear:both` css in single posts and pages.
+		 *
+		 * @return bool true|false If returns true then set `clear:none`.
+		 * @since 4.6.12
+		 */
+		public static function astra_headings_clear_compatibility() {
+			$astra_settings = astra_get_options();
+			/**
+			 * If `single_posts_pages_heading_clear_none` is set then this user is probably old user
+			 * so in that case, we will not convert the "clear:both" to "clear:none" for old users.
+			 */
+			return apply_filters( 'astra_get_option_single_posts_pages_heading_clear_none', isset( $astra_settings['single_posts_pages_heading_clear_none'] ) ? false : true );
+		}
+
+		/**
+		 * Single post outside padding was not working.
+		 *
+		 * @return bool true|false.
+		 * @since 4.8.2
+		 */
+		public static function astra_4_8_2_compatibility() {
+			$astra_settings = astra_get_options();
+			return apply_filters( 'astra_get_option_v4-8-2-backward-option', isset( $astra_settings['v4-8-2-backward-option'] ) ? false : true );
+		}
+
+		/**
+		 * Restrict unitless support to body font by default.
+		 *
+		 * 1. Unitless line-height support.
+		 * 2. Font-size of h5-h6 default update.
+		 *
+		 * @since 4.6.14
+		 * @return bool true|false.
+		 */
+		public static function astra_4_6_14_compatibility() {
+			$astra_settings = astra_get_options();
+			return apply_filters( 'astra_get_option_enable-4-6-14-compatibility', isset( $astra_settings['enable-4-6-14-compatibility'] ) ? false : true );
+		}
+
+		/**
+		 * Upgrade Astra secondary button border to look style guide in sync.
+		 *
+		 * @return bool true|false.
+		 * @since 4.8.0
+		 */
+		public static function astra_4_8_0_compatibility() {
+			$astra_settings = astra_get_options();
+			return apply_filters( 'astra_get_option_enable-4-8-0-compatibility', isset( $astra_settings['enable-4-8-0-compatibility'] ) ? false : true );
+		}
+
+		/**
+		 * Added compatibility for alignwide Spectra container width.
+		 *
+		 * @return bool true|false.
+		 * @since 4.8.4
+		 */
+		public static function astra_4_8_4_compatibility() {
+			$astra_settings = astra_get_options();
+			return apply_filters( 'astra_get_option_enable-4-8-4-compatibility', isset( $astra_settings['enable-4-8-4-compatibility'] ) ? false : true );
+		}
+
+		/**
+		 * In 4.8.9 version we are having following compatibilities.
+		 * 1. Color sequence & tooltips updated (AST-3809).
+		 *
+		 * @return bool true|false.
+		 * @since 4.8.9
+		 */
+		public static function astra_4_8_9_compatibility() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			return apply_filters( 'astra_get_option_enable-4-8-9-compatibility', isset( $astra_settings['enable-4-8-9-compatibility'] ) ? false : true );
+		}
+
+		/**
+		 * In 4.11.12 empty cart button compatibility.
+		 *
+		 * @return bool true|false.
+		 * @since 4.11.12
+		 */
+		public static function astra_4_11_12_compatibility() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			return apply_filters( 'astra_get_option_enable-4-11-12-compatibility', isset( $astra_settings['enable-4-11-12-compatibility'] ) ? false : true );
+		}
 	}
 }
